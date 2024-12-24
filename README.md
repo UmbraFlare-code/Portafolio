@@ -66,26 +66,6 @@ Desarrollo de videojuegos:
 
 ---
 
-## ✨ Cómo Contribuir
-
-Si deseas contribuir a alguno de los proyectos:
-
-1. 🔄 **Realiza un fork** del repositorio.
-2. 🔄 **Crea una nueva rama**:
-
-   ```bash
-   git checkout -b feature-nueva-funcionalidad
-   ```
-
-3. 🔄 **Envía un pull request** explicando tus cambios.
-
----
-
-## 🛠️ Licencia
-Este portafolio está protegido bajo la licencia MIT. Revisa el archivo `LICENSE` para más detalles.
-
----
-
 ✨ **¡Gracias por visitar este portafolio!**
 Si tienes alguna pregunta o comentario, no dudes en contactar. 📢
 
