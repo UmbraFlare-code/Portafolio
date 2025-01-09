@@ -7,55 +7,17 @@ Este repositorio contiene una colección de proyectos organizados en diferentes 
 ## 📁 Estructura del Repositorio
 
 ```plaintext
-Portfolio/
+Proyectos/
 ├── Web/
-│   ├── EcommercePlatform/
-│   │   ├── src/
-│   │   ├── public/
-│   │   ├── README.md
-│   └── BlogApp/
+│   ├── Forest-fall-silent / Participacion
+│   └── Generador de habitos/ Pendiente
 ├── Mobile/
-│   ├── HabitTracker/
-│   └── ExpenseTracker/
+|   └── Generador de habitos/ Pendiente
 ├── AI/
-│   ├── ImageClassifier/
-│   ├── Chatbot/
+|   └── 
 ├── IoT/
-│   ├── DomoticsSystem/
-│   └── WeatherStation/
-├── Games/
-│   ├── PuzzleGame/
-│   └── StrategySim/
-└── README.md
+    └── Comunicacion con audios/ Pendiente
 ```
-
-### 🔍 Descripción de Carpetas
-
-#### **1. Web**
-Proyectos relacionados con el desarrollo web:
-- **EcommercePlatform**: Plataforma de comercio electrónico con funcionalidades de carrito de compras y panel administrativo.
-- **BlogApp**: Blog dinámico con autenticación y comentarios en tiempo real.
-
-#### **2. Mobile**
-Aplicaciones móviles diseñadas para Android o iOS:
-- **HabitTracker**: Aplicación para seguimiento de hábitos diarios.
-- **ExpenseTracker**: Aplicación de control de gastos con gráficos interactivos.
-
-#### **3. AI**
-Proyectos basados en Inteligencia Artificial:
-- **ImageClassifier**: Clasificación de imágenes utilizando modelos de aprendizaje automático.
-- **Chatbot**: Asistente virtual para atención automatizada.
-
-#### **4. IoT**
-Sistemas basados en Internet de las Cosas:
-- **DomoticsSystem**: Sistema de control de iluminación y temperatura desde una aplicación móvil.
-- **WeatherStation**: Estación meteorológica que mide temperatura, humedad y presión.
-
-#### **5. Games**
-Desarrollo de videojuegos:
-- **PuzzleGame**: Juego 2D de rompecabezas con Unity.
-- **StrategySim**: Simulación de estrategia para gestión de recursos.
-
 ---
 
 ## 🔍 Cómo Navegar Este Repositorio
