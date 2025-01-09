@@ -25,9 +25,3 @@ Proyectos/
 1. Cada subcarpeta contiene un archivo `README.md` con la descripción detallada del proyecto, instrucciones de instalación y uso.
 2. Revisa los directorios `src/` para explorar el código fuente.
 3. Algunos proyectos incluyen documentación adicional en la carpeta `docs/`.
-
----
-
-✨ **¡Gracias por visitar este portafolio!**
-Si tienes alguna pregunta o comentario, no dudes en contactar. 📢
-
