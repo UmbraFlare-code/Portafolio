@@ -1,0 +1,123 @@
+/* Contenedor Principal with animated background */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: clamp(80vh, 100vh, 120vh); /* Ajuste dinámico */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Sección de Título e Imagen */
+.title-image-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(40vh, 70vh, 90vh);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-pic{
+  opacity: 20%;
+}
+
+.portfolio-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8rem;
+  font-weight: 700;
+  writing-mode: vertical-rl;
+  color: var(--text-color);
+  display: flex;
+  margin: 0 0 0 -3rem;
+}
+
+/* Animación de letras para título y nombre */
+.portfolio-title span,
+.name-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Información Personal (Nombre y Redes) */
+.info-container-h {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Update the name text font */
+.name-text {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 500;
+  color: var(--text-color);
+  display: flex;
+  gap: 2px;
+}
+
+/* Redes Sociales */
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1.2s forwards;
+  animation-delay: 2.25s;
+}
+
+.social-icon {
+  color: var(--text-color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  color: var(--text-resaltar);
+  transform: scale(1.2);
+}
+
+
+/* Update description text if needed */
+.description {
+  max-width: 400px;
+  text-align: justify;
+  font-size: 1.2rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 400;
+  color: var(--text-color);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s forwards;
+  animation-delay: 1.7s;
+}
+
+/* Animación para secciones completas */
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

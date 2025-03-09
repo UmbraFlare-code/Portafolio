@@ -1,0 +1,69 @@
+{
+  "awards": [
+    {
+      "name": "Premios",
+      "title": "Tercer puesto en FESTI CODE 2° Edición - Categoría C++",
+      "awarder": "U. Continental",
+      "date": "14/12/2023"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "FESTI CODE 1° Edición",
+      "issuer": "U. Continental",
+      "date": "12/12/2022"
+    },
+    {
+      "name": "Diseño Web: de 0 a MVP",
+      "issuer": "U. Continental",
+      "date": "13/12/2023"
+    },
+    {
+      "name": "Python Essentials 1",
+      "issuer": "Cisco",
+      "date": "14/12/2023"
+    }
+  ],
+  
+  "education": {
+    "name": "Education",
+    "institution": "U. Continental",
+    "studyType": "Pregrado",
+    "area": "Ingeniería de Sistemas e Informática",
+    "date": "(En curso)",
+    "url": "https://ucontinental.edu.pe"
+  },
+  
+  "projectsweb": [
+    {
+      "name": "Forest fall silent",
+      "description": "Proyecto de concurso para la NASA Space App orientado a la concientización de la generación de CO2",
+      "tags": ["React", "CSS"],
+      "url": "https://github.com/UmbraFlare-code/Forest-fall-silent",
+      "img": "/src/assets/img/forestfallsilent.jpg"
+    },
+    {
+      "name": "Portafolio",
+      "description": "Portafolio personal realizado en React",
+      "tags": ["React", "CSS", "Java Script"],
+      "url": "",
+      "img": "/src/assets/img/portafolio.png"
+    }
+  ],
+  "projectsgeneral": [
+    {
+      "name": "Ponte pilas",
+      "description": "Diseño de una aplicación móvil para la publicacion de trabajos realcionados a oficios",
+      "tags": ["Figma"],
+      "url": "https://www.figma.com/proto/iwc61aVL4Cqj7nWmgvclRS/Ponte-Pilas?page-id=0%3A1&node-id=2056-1416&viewport=529%2C-3134%2C0.57&t=5GlZ8vriGDkG07v8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2056%3A1416",
+      "img": "/src/assets/img/pontepilas.jpg"
+    },
+    {
+      "name": "Control de comunicación",
+      "description": "Proyecto de Arquitectura de sofware para la gestión de comunicación de uan persona con discapacidad oral y auditiva",
+      "tags": ["Arduino", "C++"],
+      "url": "",
+      "img": "/src/assets/img/Arduinio.png"
+    }
+  ] 
+}

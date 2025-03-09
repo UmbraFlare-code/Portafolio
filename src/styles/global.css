@@ -1,0 +1,136 @@
+:root {
+  /* Variables */
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --text-resaltar: #10FF00;
+
+  /* Standardized colors */
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-secondary: #33d9b2;
+  --color-accent: #ff6b6b;
+  --text-dark: #333333;
+  --text-muted: #666666;
+  --bg-light: #f8f9fa;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Responsive text sizes */
+  --font-size-small: clamp(0.75rem, 2vw, 1rem);
+  --font-size-medium: clamp(0.8rem, 2vw, 1.25rem);
+  --font-size-large: clamp(1.25rem, 3vw, 1.5rem);
+  --font-size-xlarge: clamp(1.5rem, 4vw, 2rem);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  font-size: var(--font-size-medium);
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Common button styles */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Common card styles */
+.card-base {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-base:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Common section styles */
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+/* Common animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Common link styles */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Responsive spacing */
+.spacing-sm {
+  margin: clamp(0.5rem, 2vw, 1rem);
+}
+
+.spacing-md {
+  margin: clamp(1rem, 3vw, 2rem);
+}
+
+.spacing-lg {
+  margin: clamp(2rem, 5vw, 3rem);
+}
+
+/* Media queries for responsive layouts */
+@media (max-width: 992px) {
+  :root {
+    --font-size-large: clamp(1.1rem, 2.5vw, 1.4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-container {
+    padding: 1rem;
+  }
+  
+  :root {
+    --font-size-small: clamp(0.7rem, 1.8vw, 0.9rem);
+  }
+}
