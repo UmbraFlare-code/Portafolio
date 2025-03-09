@@ -44,6 +44,7 @@ Portfolio/
 │   ├── App.jsx         # Main application component
 │   └── main.jsx        # Application entry point
 └── public/             # Public assets
+```
 
 ## 📁 Featured Projects
 
