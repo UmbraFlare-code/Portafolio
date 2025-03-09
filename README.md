@@ -1,42 +1,63 @@
-<<<<<<< HEAD
-# 🌐 Portafolio de Proyectos
+# 🌐 Portfolio - Francis Urquizo Oré
 
-Este repositorio contiene una colección de proyectos organizados en diferentes áreas de Ingeniería en Sistemas e Informática. Cada carpeta representa un área de especialización con proyectos individuales. Este portafolio tiene como objetivo mostrar habilidades técnicas y facilitar la exploración de los proyectos.
+This repository contains my personal portfolio website built with React and Vite, showcasing my projects, skills, and professional experience in Software Engineering and Computer Science.
 
----
+![Portfolio Preview](src/assets/img/portafolio.png)
 
-## 📁 Estructura del Repositorio
+## 🚀 Live Demo
+
+Visit the live portfolio at: [https://.](https://)
+
+## 📋 Features
+
+- **Responsive Design**: Optimized for all device sizes
+- **Interactive UI**: Animated components and transitions
+- **Project Showcase**: Categorized display of web and general projects
+- **Skills Section**: Visual representation of technical skills
+- **Education & Certifications**: Timeline of academic and professional achievements
+- **Awards**: Highlighting professional recognitions
+
+## 🛠️ Technologies Used
+
+- **React**: Frontend library for building the user interface
+- **Vite**: Next-generation frontend tooling
+- **CSS**: Custom styling with animations
+- **React Icons**: For UI icons
+- **Intersection Observer API**: For scroll animations
+
+## 🔍 Project Structure
 
 ```plaintext
-Proyectos/
-├── Web/
-│   ├── Forest-fall-silent / Participacion
-│   └── Generador de habitos/ Pendiente
-├── Mobile/
-|   └── Generador de habitos/ Pendiente
-├── AI/
-|   └── 
-├── IoT/
-    └── Comunicacion con audios/ Pendiente
-```
----
+Portfolio/
+├── src/
+│   ├── assets/         # Images and static resources
+│   ├── components/     # React components
+│   │   ├── About/      # About section components
+│   │   ├── AboutMe/    # Personal information section
+│   │   ├── Awards/     # Awards and recognitions
+│   │   ├── Education/  # Education and certifications
+│   │   ├── Header/     # Portfolio header
+│   │   ├── Projects/   # Projects showcase
+│   │   └── common/     # Reusable components
+│   ├── data/           # JSON data files
+│   ├── styles/         # Global styles
+│   ├── App.jsx         # Main application component
+│   └── main.jsx        # Application entry point
+└── public/             # Public assets
 
-## 🔍 Cómo Navegar Este Repositorio
+## 📁 Featured Projects
 
-1. Cada subcarpeta contiene un archivo `README.md` con la descripción detallada del proyecto, instrucciones de instalación y uso.
-2. Revisa los directorios `src/` para explorar el código fuente.
-3. Algunos proyectos incluyen documentación adicional en la carpeta `docs/`.
-=======
-# React + Vite
+### Web Development
+- Forest Fall Silent : NASA Space App challenge project focused on CO2 awareness
+- Portfolio : Personal portfolio website built with React
+### General Projects
+- Ponte Pilas : Mobile application design for trade-related job postings
+- Communication Control : Software architecture project for people with oral and hearing disabilities
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 2dc56cc (Initial portfolio commit)
+## 📬 Contact
+- LinkedIn: Urquizo Oré Francis
+- GitHub: UmbraFlare-code
+- Email: umaxuel@gmail.com
+- CV: Resume
