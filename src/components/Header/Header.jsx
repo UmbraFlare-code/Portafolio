@@ -22,7 +22,7 @@ export default function Header() {
     return (
         <div className="header-container">
             <div className="title-image-container">
-                <img src="/src/assets/img/foto.jpg" alt="Foto de perfil" className="profile-pic" />
+                <img src="/images/foto.jpg" alt="Foto de perfil" className="profile-pic" />
                 <h1 className="portfolio-title">
                     {renderAnimatedText(title)}
                 </h1>
