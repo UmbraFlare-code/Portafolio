@@ -2,9 +2,6 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const Card = ({ project, handleNav }) => (
   <div className="card-container">
-    <button onClick={() => handleNav(-1)} className="nav-btn left-btn" aria-label="Previous project">
-      <i className="fa fa-chevron-left"></i>
-    </button>
     <div className="card">
       <div className="card-image-container">
         <img src={project.img} alt={project.name} className="card-img" />
@@ -32,9 +29,6 @@ const Card = ({ project, handleNav }) => (
         </div>
       </div>
     </div>
-    <button onClick={() => handleNav(1)} className="nav-btn right-btn" aria-label="Next project">
-      <i className="fa fa-chevron-right"></i>
-    </button>
   </div>
 );
 

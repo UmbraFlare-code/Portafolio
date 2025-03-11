@@ -4,5 +4,5 @@
   align-items: center;
   width: 100%;
   background: white;
-  padding-top: 70px; /* Add space for fixed header */
+  padding-top: 1rem; /* Add space for fixed header */
 }

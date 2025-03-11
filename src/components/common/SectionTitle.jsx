@@ -1,5 +1,4 @@
 import React from "react";
-import "./common.css";
 
 const SectionTitle = ({ title }) => {
   return (

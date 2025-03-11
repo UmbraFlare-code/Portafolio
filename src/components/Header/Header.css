@@ -267,7 +267,7 @@
 }
 
 .profile-container:hover .profile-pic {
-  opacity: 0.9; /* Increase opacity on hover */
+  opacity: 1; /* Increase opacity on hover */
   box-shadow: 0 0 40px rgba(0, 255, 255, 0.7);
 }
 

@@ -1,6 +1,5 @@
 import AboutMe from "../AboutMe/AboutMe";
 import Education from "../Education/Education";
-import Awards from "../Awards/Awards";
 import Projects from "../Projects/Projects";
 import "./About.css";
 
@@ -12,9 +11,6 @@ export default function About() {
       </div>
       <div id="projects">
         <Projects />
-      </div>
-      <div id="awards">
-        <Awards />
       </div>
       <div id="education">
         <Education />

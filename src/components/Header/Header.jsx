@@ -1,5 +1,5 @@
 import "./Header.css";
-import Waves from '../common/Waves/Waves.jsx';
+import Aurora from '../common/Aurora/Aurora.jsx';
 import { SiLinkedin, SiGithub, SiGmail, SiReaddotcv } from "react-icons/si";
 
 export default function Header() {
@@ -22,21 +22,7 @@ export default function Header() {
 
     return (
         <div className="header-container">
-            <Waves
-                lineColor="#00ffff"
-                backgroundColor="rgba(0, 32, 64, 0.5)"
-                waveSpeedX={0.02}
-                waveSpeedY={0.01}
-                waveAmpX={40}
-                waveAmpY={20}
-                friction={0.9}
-                tension={0.01}
-                maxCursorMove={120}
-                xGap={12}
-                yGap={36}
-                cursorColor="rgba(0, 255, 255, 0.8)"
-                highlightColor="#ffffff"
-            />
+            <Aurora/>
             <div className="title-image-container">
                 <h1 className="portfolio-title" style={{ 
                     background: "none", 

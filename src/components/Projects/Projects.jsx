@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { FaChevronLeft, FaChevronRight, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import data from "../../data/portfolio-data.json";
 import Card from "../common/Card";
+import ModularButton from "../common/Button";
 import SectionTitle from "../common/SectionTitle";
 import "./Projects.css";
 
@@ -42,7 +43,23 @@ export default function Projects() {
             ))}
           </div>
         </div>
-        <Card project={webProjects[indexWeb]} handleNav={handleNavWeb} />
+        <div className="card-container">
+          <ModularButton 
+            id="web-prev"
+            icon={<FaChevronLeft />}
+            onClick={() => handleNavWeb(-1)}
+            className="round"
+            position="left"
+          />
+          <Card project={webProjects[indexWeb]} />
+          <ModularButton 
+            id="web-next"
+            icon={<FaChevronRight />}
+            onClick={() => handleNavWeb(1)}
+            className="round"
+            position="right"
+          />
+        </div>
       </div>
       
       <div className="project-category">
@@ -58,7 +75,23 @@ export default function Projects() {
             ))}
           </div>
         </div>
-        <Card project={generalProjects[indexGeneral]} handleNav={handleNavGeneral} />
+        <div className="card-container">
+          <ModularButton 
+            id="general-prev"
+            icon={<FaChevronLeft />}
+            onClick={() => handleNavGeneral(-1)}
+            className="round"
+            position="left"
+          />
+          <Card project={generalProjects[indexGeneral]} />
+          <ModularButton 
+            id="general-next"
+            icon={<FaChevronRight />}
+            onClick={() => handleNavGeneral(1)}
+            className="round"
+            position="right"
+          />
+        </div>
       </div>
     </div>
   );
