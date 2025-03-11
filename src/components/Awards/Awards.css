@@ -17,14 +17,11 @@
 .section-header {
   width: 100%;
   max-width: 800px;
-  text-align: center;
-  position: relative;
+  margin-bottom: 2rem;
 }
 
 .section-title {
   font-size: var(--font-size-large);
-  position: relative;
-  display: inline-block;
   color: var(--text-dark);
 }
 

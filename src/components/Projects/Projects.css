@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 3rem clamp(1rem, 3vw, 2rem);
   gap: 2rem;
   background-color: #fff;
-  width: 100%;
+  width: auto;
   max-width: 1200px;
 }
 
@@ -83,8 +83,7 @@
   width: 100%;
   max-width: 800px;
   height: auto;
-  margin: 0 1rem ;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .card {
