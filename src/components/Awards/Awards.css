@@ -1,6 +1,6 @@
 /* Premios y Reconocimientos */
 .section-awards {
-  width: 100%;
+  width: auto;
   max-width: 800px;
   display: flex;
   flex-direction: column;
