@@ -33,47 +33,31 @@ export default function Projects() {
       <div className="project-category">
         <div className="category-header">
           <h3 className="category-title">Desarrollo Web</h3>
-          <div className="project-counter">
-            {webProjects.map((_, idx) => (
-              <span 
-                key={idx} 
-                className={`counter-dot ${idx === indexWeb ? 'active' : ''}`}
-                onClick={() => setIndexWeb(idx)}
-              />
-            ))}
-          </div>
         </div>
         <div className="card-container">
-          <ModularButton 
-            id="web-prev"
-            icon={<FaChevronLeft />}
+          <button 
+            id="web-prev" 
+            className="modular-button round left" 
+            aria-label="Proyecto web anterior"
             onClick={() => handleNavWeb(-1)}
-            className="round"
-            position="left"
-          />
-          <Card project={webProjects[indexWeb]} />
-          <ModularButton 
-            id="web-next"
-            icon={<FaChevronRight />}
+          >
+            <FaChevronLeft />
+          </button>
+          <Card project={webProjects[indexGeneral] } />
+          <button 
+            id="web-next" 
+            className="modular-button round right" 
+            aria-label="Siguiente proyecto web"
             onClick={() => handleNavWeb(1)}
-            className="round"
-            position="right"
-          />
+          >
+            <FaChevronRight />
+          </button>
         </div>
       </div>
       
       <div className="project-category">
         <div className="category-header">
           <h3 className="category-title">Otros Proyectos</h3>
-          <div className="project-counter">
-            {generalProjects.map((_, idx) => (
-              <span 
-                key={idx} 
-                className={`counter-dot ${idx === indexGeneral ? 'active' : ''}`}
-                onClick={() => setIndexGeneral(idx)}
-              />
-            ))}
-          </div>
         </div>
         <div className="card-container">
           <ModularButton 

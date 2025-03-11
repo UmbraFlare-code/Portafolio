@@ -31,7 +31,7 @@
     "studyType": "Pregrado",
     "area": "Ingeniería de Sistemas e Informática",
     "date": "(En curso)",
-    "url": "https://ucontinental.edu.pe"
+    "url": "https://ucontinental.edu.pe/carrera/ingenieria-de-sistemas-e-informatica/"
   },
   
   "projectsweb": [
@@ -83,17 +83,20 @@
       {
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/urquizo-oré-francis/",
-        "icon": "SiLinkedin"
+        "icon": "SiLinkedin",
+        "ariaLabel": "LinkedIn"
       },
       {
         "name": "GitHub",
         "url": "https://github.com/UmbraFlare-code",
-        "icon": "SiGithub"
+        "icon": "SiGithub",
+        "ariaLabel": "Ver mis proyectos en GitHub"
       },
       {
         "name": "CV",
         "url": "https://rxresu.me/umbraflare-code/cv",
-        "icon": "SiReaddotcv"
+        "icon": "SiReaddotcv",
+        "ariaLabel": "Descargar mi Curriculum Vitae"
       }
     ],
     "quickLinks": [

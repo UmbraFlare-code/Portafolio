@@ -69,11 +69,11 @@ const Footer = () => {
                   key={index} 
                   href={link.url} 
                   className="social-icon-link"
-                  target="_blank"
+                  target="_blank" 
                   rel="noopener noreferrer"
                 >
                   <Icon size={24} />
-                </a>
+                </a >
               );
             })}
           </div>

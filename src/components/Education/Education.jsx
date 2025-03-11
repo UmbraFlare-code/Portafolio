@@ -38,23 +38,38 @@ export default function Education() {
           {timelineEvents.map((event, index) => (
             <div className={`timeline-item ${event.type}`} key={index}>
               <div className="timeline-date">{event.date}</div>
-              <div className="timeline-dot">
-                {event.type === "education" ? 
-                  <FaGraduationCap className="timeline-icon" /> : 
-                  <FaCertificate className="timeline-icon" />
-                }
-              </div>
+              
               <div className="timeline-content">
-                <span className="timeline-label">{event.type === "education" ? "Educación" : "Certificación"}</span>
+                <span className="timeline-label">
+                  <div 
+                    className="timeline-dot"
+                    role="img"
+                    aria-label={event.type === "education" ? "Ícono de educación" : "Ícono de certificación"}
+                  >
+                    {event.type === "education" ? 
+                      <FaGraduationCap className="timeline-icon" /> : 
+                      <FaCertificate className="timeline-icon" />
+                    }
+                  </div>
+                  {event.type === "education" ? "Educación" : "Certificación"}
+                </span>
                 <h4 className="item-subtitle">{event.type === "education" ? event.area : event.name}</h4>
                 <p className="timeline-details">{event.type === "education" ? `${event.institution} - ${event.studyType}` : event.issuer}</p>
-                {event.url && <a href={event.url} target="_blank" rel="noopener noreferrer" className="timeline-link">Más información</a>}
+                {event.url && (
+                  <a 
+                    href={event.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="timeline-link"
+                    aria-label={`Más información sobre ${event.type === "education" ? event.area : event.name}`}
+                  >
+                    Más información
+                  </a>
+                )}
               </div>
             </div>
           ))}
         </div>
-        
-        
       </div>
       <div id="awards">
         <Awards />

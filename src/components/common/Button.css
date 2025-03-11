@@ -1,30 +1,78 @@
 .modular-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   border: none;
-  background: var(--color-primary, #007bff);
+  background-color: var(--color-primary);
   color: white;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
 }
 
 .modular-button:hover {
-  background: var(--color-primary-dark, #0056b3);
+  background-color: var(--color-primary-dark);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modular-button:active {
+  transform: translateY(0);
 }
 
 .modular-button.round {
   border-radius: 50%;
-  width: clamp(40px, 8vw, 50px);
-  height: clamp(40px, 8vw, 50px);
-  padding: 0;
+  padding: 0.5rem;
+}
+
+.modular-button.left {
+  margin-right: auto;
+}
+
+.modular-button.right {
+  margin-left: auto;
+}
+
+.modular-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .button-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button-label {
+  margin-left: 0.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .modular-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
+  }
+  
+  .button-label {
+    margin-left: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modular-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 2rem;
+    min-height: 2rem;
+  }
 }

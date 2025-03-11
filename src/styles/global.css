@@ -20,8 +20,8 @@
   /* Responsive text sizes */
   --font-size-small: clamp(0.75rem, 2vw, 1rem);
   --font-size-medium: clamp(0.8rem, 2vw, 1.25rem);
-  --font-size-large: clamp(1.25rem, 3vw, 1.5rem);
-  --font-size-xlarge: clamp(1.5rem, 4vw, 2rem);
+  --font-size-large: clamp(1.25rem, 2vw, 1.5rem);
+  --font-size-xlarge: clamp(1.30rem, 2vw, 1.5rem);
 }
 
 body {
@@ -30,6 +30,12 @@ body {
   color: var(--text-color);
   overflow-x: hidden;
   font-size: var(--font-size-medium);
+}
+
+.section-title {
+  font-size: var(--font-size-xlarge);
+  text-align: center;
+  color: var(--text-dark);
 }
 
 .total-container {

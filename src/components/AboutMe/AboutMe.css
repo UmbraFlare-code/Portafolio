@@ -14,12 +14,6 @@
   text-align: center;
 }
 
-.section-title {
-  font-size: var(--font-size-large);
-  color: var(--text-dark);
-  margin: 0;
-}
-
 .section-title::after {
   content: '';
   position: absolute;
@@ -49,21 +43,16 @@
   transform: translateY(0);
 }
 
-.profile-pic-c:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
 .info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
+  max-width: 570px;
   width: fit-content;
 }
 
 .profile-pic-c {
-  width: clamp(150px, 30vw, 300px);
+  width: 250px;
   height: auto;
   border-radius: 5%;
   margin: 2rem 0;
@@ -73,11 +62,11 @@
 
 
 .descripcion {
-  width: clamp(300px, 70%, 800px);
+  font-size: var(--font-size-small);
+  width: clamp(300px, 85%, 500px);
   padding: 0 0.5rem;
   background-color: var(--bg-light);
   border-radius: 10px;
-  border-left: 4px solid var(--color-primary);
   color: var(--text-dark);
 }
 
@@ -155,7 +144,6 @@
   .info-container {
     flex-direction: column;
     align-items: center;
-    width: auto;
   }
 
   .carrusel-wrapper {

@@ -5,15 +5,10 @@
   padding: 3rem clamp(1rem, 3vw, 2rem);
   gap: 2rem;
   background-color: #fff;
-  width: auto;
+  width: clamp(auto, 100vw, 850px);
   max-width: 1200px;
 }
 
-.section-title {
-  font-size: var(--font-size-large);
-  text-align: center;
-  color: var(--text-dark);
-}
 
 .section-title::after {
   content: '';
