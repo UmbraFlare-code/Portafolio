@@ -4,10 +4,6 @@ This repository contains my personal portfolio website built with React and Vite
 
 ![Portfolio Preview](src/assets/img/portafolio.png)
 
-## 🚀 Live Demo
-
-Visit the live portfolio at: [https://.](https://)
-
 ## 📋 Features
 
 - **Responsive Design**: Optimized for all device sizes
