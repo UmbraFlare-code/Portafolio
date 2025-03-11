@@ -63,7 +63,7 @@ export default function Education() {
                     className="timeline-link"
                     aria-label={`Más información sobre ${event.type === "education" ? event.area : event.name}`}
                   >
-                    Más información
+                    Pagina de la carrera
                   </a>
                 )}
               </div>

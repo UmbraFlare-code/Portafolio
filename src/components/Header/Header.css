@@ -21,14 +21,25 @@
   gap: 2rem;
 }
 
+@font-face {
+  font-family: 'SextapeRegular';
+  src: url('/public/fonts/SextapeRegular-yYjem.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .portfolio-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(3rem, 6vw, 6rem);
+  color: white;
+  font-family: 'SextapeRegular', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1rem ;
+  font-size: clamp(3rem, 6vw, 7rem);
   font-weight: 700;
-  color: var(--text-color);
-  letter-spacing: 0.2em;
-  background-clip: text;
   animation: shimmer 3s infinite linear;
+  mix-blend-mode: difference;
 }
 
 /* Update profile container to position title above */

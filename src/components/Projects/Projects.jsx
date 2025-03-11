@@ -35,23 +35,23 @@ export default function Projects() {
           <h3 className="category-title">Desarrollo Web</h3>
         </div>
         <div className="card-container">
-          <button 
-            id="web-prev" 
-            className="modular-button round left" 
-            aria-label="Proyecto web anterior"
+          <ModularButton 
+            id="web-prev"
+            icon={<FaChevronLeft />}
             onClick={() => handleNavWeb(-1)}
-          >
-            <FaChevronLeft />
-          </button>
-          <Card project={webProjects[indexGeneral] } />
-          <button 
-            id="web-next" 
-            className="modular-button round right" 
-            aria-label="Siguiente proyecto web"
+            className="round"
+            position="left"
+            ariaLabel="Proyecto web anterior"
+          />
+          <Card project={webProjects[indexWeb]} />
+          <ModularButton 
+            id="web-next"
+            icon={<FaChevronRight />}
             onClick={() => handleNavWeb(1)}
-          >
-            <FaChevronRight />
-          </button>
+            className="round"
+            position="right"
+            ariaLabel="Siguiente proyecto web"
+          />
         </div>
       </div>
       

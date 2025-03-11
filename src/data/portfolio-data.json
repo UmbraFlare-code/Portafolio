@@ -31,7 +31,8 @@
     "studyType": "Pregrado",
     "area": "Ingeniería de Sistemas e Informática",
     "date": "(En curso)",
-    "url": "https://ucontinental.edu.pe/carrera/ingenieria-de-sistemas-e-informatica/"
+    "url": "https://ucontinental.edu.pe/carrera/ingenieria-de-sistemas-e-informatica/",
+    "description": "Pagina de carrera universitaria"
   },
   
   "projectsweb": [
@@ -40,14 +41,14 @@
       "description": "Proyecto de concurso para la NASA Space App orientado a la concientización de la generación de CO2",
       "tags": ["React", "CSS"],
       "url": "https://github.com/UmbraFlare-code/Forest-fall-silent",
-      "img": "./forestfallsilent.jpg"
+      "img": "./forestfallsilent.webp"
     },
     {
       "name": "Portafolio",
       "description": "Portafolio personal realizado en React",
       "tags": ["React", "CSS", "Java Script"],
       "url": "",
-      "img": "./portafolio.jpg"
+      "img": "./portafolio.webp"
     }
   ],
   "projectsgeneral": [
@@ -56,14 +57,14 @@
       "description": "Diseño de una aplicación móvil para la publicacion de trabajos realcionados a oficios",
       "tags": ["Figma"],
       "url": "https://www.figma.com/proto/iwc61aVL4Cqj7nWmgvclRS/Ponte-Pilas?page-id=0%3A1&node-id=2056-1416&viewport=529%2C-3134%2C0.57&t=5GlZ8vriGDkG07v8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2056%3A1416",
-      "img": "./pontepilas.jpg"
+      "img": "./pontepilas.webp"
     },
     {
       "name": "Control de comunicación",
       "description": "Proyecto de Arquitectura de sofware para la gestión de comunicación de uan persona con discapacidad oral y auditiva",
       "tags": ["Arduino", "C++"],
       "url": "",
-      "img": "./Arduinio.png"
+      "img": "./Arduinio.webp"
     }
   ] ,
   "footer": {
@@ -82,21 +83,27 @@
     "socialLinks": [
       {
         "name": "LinkedIn",
-        "url": "https://www.linkedin.com/in/urquizo-oré-francis/",
+        "url": "https://www.linkedin.com/in/yourprofile",
         "icon": "SiLinkedin",
-        "ariaLabel": "LinkedIn"
+        "description": "Perfil profesional en LinkedIn"
       },
       {
         "name": "GitHub",
-        "url": "https://github.com/UmbraFlare-code",
+        "url": "https://github.com/yourusername",
         "icon": "SiGithub",
-        "ariaLabel": "Ver mis proyectos en GitHub"
+        "description": "Repositorios de código en GitHub"
       },
       {
-        "name": "CV",
-        "url": "https://rxresu.me/umbraflare-code/cv",
+        "name": "Email",
+        "url": "mailto:your.email@example.com",
+        "icon": "SiGmail",
+        "description": "Contacto por correo electrónico"
+      },
+      {
+        "name": "Curriculum Vitae",
+        "url": "/path/to/your/cv.pdf",
         "icon": "SiReaddotcv",
-        "ariaLabel": "Descargar mi Curriculum Vitae"
+        "description": "Descargar CV en formato PDF"
       }
     ],
     "quickLinks": [

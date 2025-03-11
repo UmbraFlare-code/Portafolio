@@ -51,7 +51,7 @@ export default function AboutMe() {
       <SectionTitle title="Sobre mí" />
       
       <div className="info-container" ref={infoRef}>
-        <img src="/foto-c.png" alt="Foto de perfil" className="profile-pic-c" />
+        <img src="/foto-c.webp" alt="Foto de perfil" className="profile-pic-c" />
         <div className="info">
           <p className="descripcion">
             Estudiante de 7° ciclo de Ingeniería en Sistemas e Informática. Busco contribuir al desarrollo de sistemas innovadores y eficientes en el ámbito tecnológico.

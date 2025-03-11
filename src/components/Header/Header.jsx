@@ -33,16 +33,12 @@ export default function Header() {
         <div className="header-container" id="home">
             <Aurora/>
             <div className="title-image-container">
-                <h1 className="portfolio-title" style={{ 
-                    background: "none", 
-                    WebkitTextFillColor: "#00ffff", 
-                    textShadow: "0 0 10px rgba(0, 255, 255, 0.5)" 
-                }}>
+                <h1 className="portfolio-title">
                     {renderAnimatedText(title)}
                 </h1>
                 <div className="profile-container">
                     <div className="initials-overlay"></div>
-                    <img src="/foto-c.png" alt="imagen de presentacion" className="profile-pic" />
+                    <img src="/foto-c.webp" alt="imagen de presentacion" className="profile-pic" />
                 </div>
 
                 <div className="info-container-h">
@@ -53,7 +49,13 @@ export default function Header() {
                         {socialLinks.map(({ name, url, icon }, index) => {
                             const Icon = getIconComponent(icon);
                             return (
-                                <a href={url} className="social-icon" key={index} title={name}>
+                                <a 
+                                    href={url} 
+                                    className="social-icon" 
+                                    key={index} 
+                                    title={name}
+                                    aria-label={`Visitar perfil de ${name}`}
+                                >
                                     <Icon size={22} />
                                 </a>
                             );
