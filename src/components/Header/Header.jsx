@@ -44,20 +44,21 @@ export default function Header() {
                     <div className="initials-overlay"></div>
                     <img src="/foto-c.png" alt="imagen de presentacion" className="profile-pic" />
                 </div>
-            </div>
-            <div className="info-container-h">
-                <p className="name-text">
-                    {renderAnimatedText(name, 1)}
-                </p>
-                <div className="social-links">
-                    {socialLinks.map(({ name, url, icon }, index) => {
-                        const Icon = getIconComponent(icon);
-                        return (
-                            <a href={url} className="social-icon" key={index} title={name}>
-                                <Icon size={22} />
-                            </a>
-                        );
-                    })}
+
+                <div className="info-container-h">
+                    <p className="name-text">
+                        {renderAnimatedText(name, 1)}
+                    </p>
+                    <div className="social-links">
+                        {socialLinks.map(({ name, url, icon }, index) => {
+                            const Icon = getIconComponent(icon);
+                            return (
+                                <a href={url} className="social-icon" key={index} title={name}>
+                                    <Icon size={22} />
+                                </a>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </div>
