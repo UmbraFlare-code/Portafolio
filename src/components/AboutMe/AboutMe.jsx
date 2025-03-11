@@ -47,7 +47,7 @@ export default function AboutMe() {
   }, []);
 
   return (
-    <section className="about-me-section">
+    <section className="about-me-section" id="skills">
       <SectionTitle title="Sobre mí" />
       
       <div className="info-container" ref={infoRef}>

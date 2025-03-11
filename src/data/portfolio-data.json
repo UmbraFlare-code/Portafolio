@@ -69,7 +69,10 @@
   "footer": {
     "title": "Contacto",
     "subtitle": "¿Interesado en trabajar juntos? Contáctame",
-    "email": "umaxuel@gmail.com",
+    "email": {
+      "address": "umaxuel@gmail.com",
+      "mailtoUrl": "mailto:umaxuel@gmail.com?subject=Interesado%20en%20tu%20Trabajo&body=Hola%20Francis!%20He%20visto%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20discutir%20una%20oportunidad%20de%20colaboraci%C3%B3n."
+    },
     "phone": {
       "number": "+51 926061849",
       "whatsappUrl": "https://wa.me/51926061849?text=Hola%20Francis!%20Vi%20tu%20portafolio%20y%20me%20interesa%20colaborar%20contigo."

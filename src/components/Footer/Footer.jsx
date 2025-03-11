@@ -27,15 +27,15 @@ const Footer = () => {
           <div className="contact-info">
             <div className="contact-item">
               <FaWhatsapp className="contact-icon" />
-              <a href={footer.phone.whatsappUrl} className="contact-link">
+              <a href={footer.phone.whatsappUrl} className="contact-link" target="_blank" rel="noopener noreferrer">
                 {footer.phone.number}
               </a>
             </div>
             
             <div className="contact-item">
               <SiGmail className="contact-icon" />
-              <a href={`mailto:${footer.email}`} className="contact-link">
-                {footer.email}
+              <a href={footer.email.mailtoUrl} className="contact-link">
+                {footer.email.address}
               </a>
             </div>
             

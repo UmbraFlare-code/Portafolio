@@ -30,7 +30,7 @@ export default function Header() {
     );
 
     return (
-        <div className="header-container">
+        <div className="header-container" id="home">
             <Aurora/>
             <div className="title-image-container">
                 <h1 className="portfolio-title" style={{ 
