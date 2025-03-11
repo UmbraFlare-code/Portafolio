@@ -1,7 +1,8 @@
-import Header from "./components/Header/Header";
+import Header from "./components/Header/header";
 import "./components/Header/Header.css";
 import About from "./components/About/About";
 import "./components/About/About.css";
+import Footer from "./components/Footer/Footer";
 import "./styles/global.css";
 
 export function App() {
@@ -9,6 +10,7 @@ export function App() {
         <div className="total-container">
             <Header />
             <About />
+            <Footer />
         </div>
     );
 }

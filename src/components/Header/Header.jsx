@@ -1,16 +1,25 @@
 import "./Header.css";
 import Aurora from '../common/Aurora/Aurora.jsx';
 import { SiLinkedin, SiGithub, SiGmail, SiReaddotcv } from "react-icons/si";
+import data from '../../data/portfolio-data.json';
 
 export default function Header() {
     const title = "Portafolio";
     const name = "Urquizo Oré, Francis M.";
-    const socialLinks = [
-        { href: "https://www.linkedin.com/in/urquizo-oré-francis/", icon: SiLinkedin },
-        { href: "https://github.com/UmbraFlare-code", icon: SiGithub },
-        { href: "https://mail.google.com/mail/?view=cm&fs=1&to=umaxuel@gmail.com", icon: SiGmail },
-        { href: "https://rxresu.me/umbraflare-code/cv", icon: SiReaddotcv }
-    ];
+    
+    // Get social links from the imported JSON data
+    const socialLinks = data.footer.socialLinks;
+
+    // Map icon strings to actual components
+    const getIconComponent = (iconName) => {
+        const icons = {
+            SiLinkedin,
+            SiGithub,
+            SiGmail,
+            SiReaddotcv
+        };
+        return icons[iconName];
+    };
 
     const renderAnimatedText = (text, delayStart = 0) => (
         text.split("").map((char, index) => (
@@ -41,11 +50,14 @@ export default function Header() {
                     {renderAnimatedText(name, 1)}
                 </p>
                 <div className="social-links">
-                    {socialLinks.map(({ href, icon: Icon }, index) => (
-                        <a href={href} className="social-icon" key={index}>
-                            <Icon size={22} />
-                        </a>
-                    ))}
+                    {socialLinks.map(({ name, url, icon }, index) => {
+                        const Icon = getIconComponent(icon);
+                        return (
+                            <a href={url} className="social-icon" key={index} title={name}>
+                                <Icon size={22} />
+                            </a>
+                        );
+                    })}
                 </div>
             </div>
         </div>
