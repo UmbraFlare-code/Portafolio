@@ -19,29 +19,24 @@
 .footer-section {
   flex: 1;
   min-width: 250px;
-}
-
-.footer-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin:0;
-  color: var(--text-muted);
+  max-width: 280px;
 }
 
 .footer-subtitle {
   font-size: 1.1rem;
-  margin-bottom: 2rem;
+  margin: 0 0 1rem 0;
   opacity: 0.9;
 }
 
 .footer-heading {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  margin: 0;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-color);
 }
 
 .contact-info {
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -70,6 +65,7 @@
 }
 
 .quick-links {
+  font-size: 1rem;
   list-style: none;
   padding: 0;
   display: flex;
@@ -91,6 +87,7 @@
 }
 
 .social-icons {
+  margin: 1rem 0;
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
