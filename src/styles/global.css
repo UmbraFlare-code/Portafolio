@@ -41,36 +41,12 @@ body {
 .total-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
   min-height: 100vh;
 }
-
-/* Common button styles */
-button {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Common card styles */
-.card-base {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-base:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Common section styles */
-.section-container {
+.total-container > * {
   width: 100%;
-  max-width: 1200px;
-  padding: 2rem;
-  margin: 0 auto;
+  padding-inline: 2rem;
+  box-sizing: border-box;
 }
 
 /* Common animations */
@@ -122,21 +98,5 @@ a:hover {
 @media (max-width: 992px) {
   :root {
     --font-size-large: clamp(1.1rem, 2.5vw, 1.4rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .section-container {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-container {
-    padding: 1rem;
-  }
-  
-  :root {
-    --font-size-small: clamp(0.7rem, 1.8vw, 0.9rem);
   }
 }

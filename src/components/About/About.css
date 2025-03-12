@@ -1,8 +1,15 @@
 .about-section {
+  width: 100%;
+  background: white;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.about-section > * {
+  max-width: 800px;
   width: 100%;
-  background: white;
-  padding-top: 4rem; /* Add space for fixed header */
+  display: flex;
+  justify-content: center;
 }
