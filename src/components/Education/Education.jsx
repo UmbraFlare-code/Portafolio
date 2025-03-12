@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import SectionTitle from "../common/SectionTitle";
 import { FaGraduationCap, FaCertificate } from "react-icons/fa";
 import portfolioData from "../../data/portfolio-data.json";
-import Awards from "../Awards/Awards";
+import Awards from "./Awards/Awards.jsx";
 import "./Education.css";
 
 export default function Education() {
