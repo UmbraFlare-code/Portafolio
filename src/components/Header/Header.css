@@ -32,14 +32,12 @@
 .portfolio-title {
   color: white;
   font-family: 'SextapeRegular', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
   margin: 0;
   text-align: center;
-  letter-spacing: 1rem ;
-  font-size: clamp(3rem, 6vw, 7rem);
-  font-weight: 700;
+  letter-spacing: 0.5rem;
   animation: shimmer 3s infinite linear;
   mix-blend-mode: difference;
+  font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
 /* Update profile container to position title above */
@@ -106,7 +104,7 @@
 /* Update the name text font */
 .name-text {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(0.5rem, 1vw, 1.5rem);
   font-family: 'Poppins', Arial, sans-serif;
   font-weight: 500;
   color: var(--text-color);
