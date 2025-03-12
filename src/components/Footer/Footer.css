@@ -1,7 +1,7 @@
 .footer {
+  padding: 1rem 0;
   background-color: #000000;
   color: var(--text-muted);
-  padding: 2rem;
 }
 
 .footer-container {
@@ -109,8 +109,7 @@
 }
 
 .footer-bottom {
-  margin-top: 4rem;
-  padding-top: 2rem;
+  margin: 0;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -118,4 +117,5 @@
 .copyright {
   font-size: 0.9rem;
   opacity: 0.8;
+  margin: 1rem 0 0 0;
 }
