@@ -46,6 +46,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📬 Contact
 - LinkedIn: Urquizo Oré Francis
-- GitHub: UmbraFlare-code
+- GitHub: [UmbraFlare-code](https://github.com/UmbraFlare-code)
 - Email: umaxuel@gmail.com
-- CV: [resume](https://rxresu.me/umbraflare-code/cv)
+- CV: [Resume](https://rxresu.me/umbraflare-code/cv)
