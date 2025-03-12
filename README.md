@@ -45,7 +45,7 @@ Portfolio/
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 📬 Contact
-- LinkedIn: Urquizo Oré Francis
+- LinkedIn: [Urquizo Oré Francis](https://www.linkedin.com/in/urquizo-oré-francis/)
 - GitHub: [UmbraFlare-code](https://github.com/UmbraFlare-code)
 - Email: umaxuel@gmail.com
 - CV: [Resume](https://rxresu.me/umbraflare-code/cv)
