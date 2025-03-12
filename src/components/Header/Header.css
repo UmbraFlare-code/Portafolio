@@ -36,7 +36,6 @@
   text-align: center;
   letter-spacing: 0.5rem;
   animation: shimmer 3s infinite linear;
-  mix-blend-mode: difference;
   font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
