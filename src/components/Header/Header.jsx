@@ -5,7 +5,8 @@ import data from '../../data/portfolio-data.json';
 
 export default function Header() {
     const title = "Portafolio";
-    const name = "Urquizo Oré, Francis M.";
+    // Use data from portfolio-data.json
+    const name = data.name;
     
     // Get social links from the imported JSON data
     const socialLinks = data.footer.socialLinks;
@@ -38,7 +39,8 @@ export default function Header() {
                 </h1>
                 <div className="profile-container">
                     <div className="initials-overlay"></div>
-                    <img src="/foto-c.webp" alt="imagen de presentacion" className="profile-pic" />
+                    {/* Use image path from portfolio-data.json */}
+                    <img src={data.img} alt="imagen de presentacion" className="profile-pic" />
                 </div>
 
                 <div className="info-container-h">

@@ -1,4 +1,8 @@
 {
+  "name": "Maxuel, Urquizo Oré",
+  "title": "Ingeniero de Sistemas e Informática",
+  "description": "Soy un apasionado ingeniero de sistemas e informática con experiencia en desarrollo de software, diseño de interfaces y gestión de proyectos. Mi enfoque se centra en la creación de soluciones tecnológicas eficientes y efectivas.",
+  "img": "./img/francis.webp",
   "awards": [
     {
       "name": "Premios",
@@ -41,14 +45,14 @@
       "description": "Proyecto de concurso para la NASA Space App orientado a la concientización de la generación de CO2",
       "tags": ["React", "CSS"],
       "url": "https://github.com/UmbraFlare-code/Forest-fall-silent",
-      "img": "./forestfallsilent.webp"
+      "img": "./img/forestfallsilent.webp"
     },
     {
       "name": "Portafolio",
       "description": "Portafolio personal realizado en React",
       "tags": ["React", "CSS", "Java Script"],
-      "url": "",
-      "img": "./portafolio.webp"
+      "url": "https://github.com/UmbraFlare-code/Portfolio",
+      "img": "./img/portafolio.webp"
     }
   ],
   "projectsgeneral": [
@@ -57,16 +61,16 @@
       "description": "Diseño de una aplicación móvil para la publicacion de trabajos realcionados a oficios",
       "tags": ["Figma"],
       "url": "https://www.figma.com/proto/iwc61aVL4Cqj7nWmgvclRS/Ponte-Pilas?page-id=0%3A1&node-id=2056-1416&viewport=529%2C-3134%2C0.57&t=5GlZ8vriGDkG07v8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2056%3A1416",
-      "img": "./pontepilas.webp"
-    },
-    {
-      "name": "Control de comunicación",
-      "description": "Proyecto de Arquitectura de sofware para la gestión de comunicación de uan persona con discapacidad oral y auditiva",
-      "tags": ["Arduino", "C++"],
-      "url": "",
-      "img": "./Arduinio.webp"
+      "img": "./img/pontepilas.webp"
     }
-  ] ,
+  ],
+  "_disabledProject": {
+    "name": "Control de comunicación",
+    "description": "Proyecto de Arquitectura de sofware para la gestión de comunicación de una persona con discapacidad oral y auditiva",
+    "tags": ["Arduino", "C++"],
+    "url": "",
+    "img": "./img/Arduinio.webp"
+  },
   "footer": {
     "title": "Contacto",
     "subtitle": "¿Interesado en trabajar juntos? Contáctame",

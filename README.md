@@ -2,7 +2,7 @@
 
 This repository contains my personal portfolio website built with React and Vite, showcasing my projects, skills, and professional experience in Software Engineering and Computer Science.
 
-![Portfolio Preview](src/assets/img/portafolio.png)
+![Portfolio Preview](/public/img/portafolio.webp)
 
 ## 📋 Features
 

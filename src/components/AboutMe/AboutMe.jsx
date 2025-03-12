@@ -11,6 +11,7 @@ import {
   SiFigma,
 } from "react-icons/si";
 import "./AboutMe.css";
+import data from '../../data/portfolio-data.json';
 
 export default function AboutMe() {
   const infoRef = useRef(null);
@@ -51,12 +52,14 @@ export default function AboutMe() {
       <SectionTitle title="Sobre mí" />
       
       <div className="info-container" ref={infoRef}>
-        <img src="/foto-c.webp" alt="Foto de perfil" className="profile-pic-c" />
+        {/* Use image path from portfolio-data.json */}
+        <img src={data.img} alt="Foto de perfil" className="profile-pic-c" />
         <div className="info">
           <p className="descripcion">
-            Estudiante de 7° ciclo de Ingeniería en Sistemas e Informática. Busco contribuir al desarrollo de sistemas innovadores y eficientes en el ámbito tecnológico.
+            {/* Use description from portfolio-data.json */}
+            {data.description}
           </p>
-          <h3 className="subtitulo">Herramientas</h3>
+          <h3 className="subtitulo">{data.title}</h3>
           <div className="carrusel-wrapper">
             <div className="carrusel-content">
               {skills.concat(skills).map((skill, index) => (

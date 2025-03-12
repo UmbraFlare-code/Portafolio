@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
 import { FaChevronLeft, FaChevronRight, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import data from "../../data/portfolio-data.json";
-import Card from "../common/Card";
-import ModularButton from "../common/Button";
+import Card from "../common/Card/Card.jsx";
+import ModularButton from "../common/Button/Button.jsx";
 import SectionTitle from "../common/SectionTitle";
 import "./Projects.css";
 
