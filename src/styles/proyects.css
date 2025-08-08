@@ -4,6 +4,7 @@
   width: 100%;
   box-sizing: border-box;
   justify-items: center;
+  scroll-margin-top: 2rem;
 }
 
 .proyectos-title {
@@ -52,7 +53,7 @@
 
 
 /* Botones internos */
-.btn-toggle {
+.btn-toggle, .secondary {
   flex: 0 0 auto;
   padding: 0.5rem 1rem;
   background: transparent;
@@ -69,7 +70,6 @@
   color: var(--bg-color);
 }
 
-
 .ver-mas-container {
   text-align: center;
 }
@@ -82,6 +82,7 @@
   max-width: 1500px;
   width: 100%;
   margin-bottom: 1.5rem;
+  scroll-margin-top: 100px;
 }
 
 /* <= 1000px: una sola columna */

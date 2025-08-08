@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Card from '../components/ui/cardProyect';
 import proyectosData from '../data/proyects.json';
 import Button from '../components/ui/button'; 
@@ -11,7 +11,8 @@ function Proyects() {
   const labels = data.categories || {};
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
-  const [mostrarTodo, setMostrarTodo] = useState(false);
+  const [mostrarTodo, setMostrarTodo] = useState(true);
+  const gridRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1000);
@@ -32,18 +33,46 @@ function Proyects() {
   let proyectosFiltrados;
 
   if (!categoriaActiva) {
-    // Mostrar solo destacados de todas las categorías
-    proyectosFiltrados = todosLosProyectos.filter(p => p.featured);
+    // Ordenar todos los proyectos, destacados primero
+    proyectosFiltrados = todosLosProyectos.sort((a, b) => {
+      if (a.featured === b.featured) return 0;
+      return a.featured ? -1 : 1;
+    });
   } else {
     // Mostrar todos los de la categoría activa, ordenando destacados primero
     proyectosFiltrados = [...data[categoriaActiva]].sort((a, b) => {
       if (a.featured === b.featured) return 0;
-      return a.featured ? -1 : 1; // featured true antes que false
+      return a.featured ? -1 : 1;
     });
   }
 
   const mostrarVerMas = proyectosFiltrados.length > maxToShow;
+  // Modificamos esta línea para asegurar que se muestren todos los proyectos cuando mostrarTodo es true
   const proyectos = mostrarTodo ? proyectosFiltrados : proyectosFiltrados.slice(0, maxToShow);
+
+  // Añadimos un console.log para debuggear
+  console.log({
+    mostrarTodo,
+    totalProyectos: proyectosFiltrados.length,
+    proyectosMostrados: proyectos.length,
+    maxToShow
+  });
+
+  const scrollToLastVisible = () => {
+    if (gridRef.current) {
+      const cards = gridRef.current.children;
+      const lastVisibleIndex = maxToShow - 1;
+      
+      if (cards[lastVisibleIndex]) {
+        const offset = 100; // Offset para mejor visualización
+        const cardPosition = cards[lastVisibleIndex].offsetTop - offset;
+        window.scrollTo({
+          top: cardPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
 
   return (
     <section className="proyectos-section" id="projects">
@@ -67,7 +96,7 @@ function Proyects() {
         </div>
       </div>
 
-      <div className="proyectos-grid">
+      <div className="proyectos-grid" ref={gridRef}>
         {proyectos.map((proyecto, index) => (
           <Card key={index} data={proyecto} />
         ))}
@@ -75,13 +104,18 @@ function Proyects() {
 
       {mostrarVerMas && (
         <div className="ver-mas-container">
-          <Button
-            onClick={() => setMostrarTodo(!mostrarTodo)}
-            variant="secondary"
+          <button
+            onClick={() => {
+              setMostrarTodo(!mostrarTodo);
+              if (mostrarTodo) {
+                setTimeout(scrollToLastVisible, 100);
+              }
+            }}
+            className="secondary"
           >
             {mostrarTodo ? 'Ver menos' : 'Ver más proyectos'}
             {categoriaActiva ? ` de ${labels[categoriaActiva] || categoriaActiva}` : ''}
-          </Button>
+          </button>
         </div>
       )}
     </section>

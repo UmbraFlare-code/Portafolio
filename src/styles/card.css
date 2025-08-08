@@ -9,6 +9,7 @@
   width: 100%;
   margin: 0 auto;
   align-content: center;
+  max-width: 900px;
 }
 
 .cardP:hover {
@@ -18,7 +19,7 @@
 
 .card-desktop-layout {
   display: grid;
-  grid-template-columns: 280px auto 1fr;
+  grid-template-columns: 280px auto 32px;
   gap: 1rem;
   align-items: center;
 }
@@ -130,6 +131,7 @@
     writing-mode: horizontal-tb;
     width: 100%;
     margin-top: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .card-status {
