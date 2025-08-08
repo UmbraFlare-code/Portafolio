@@ -18,7 +18,7 @@
                 "JavaScript"
             ],
             "url": "https://github.com/UmbraFlare-code/Forest-fall-silent",
-            "img": "./assets/img/proyects/forestfallsilent.webp",
+            "img": "assets/img/proyects/forestfallsilent.webp",
             "featured": false
         },
         {
@@ -31,7 +31,7 @@
                 "JavaScript"
             ],
             "url": "https://github.com/UmbraFlare-code/Portfolio",
-            "img": "./assets/img/proyects/portfolio.png",
+            "img": "assets/img/proyects/portfolio.png",
             "featured": false
         },
         {
@@ -44,7 +44,7 @@
                 "JavaScript"
             ],
             "url": "https://acm-uc.netlify.app/",
-            "img": "./assets/img/proyects/ACM.png",
+            "img": "assets/img/proyects/ACM.png",
             "featured": true
         },
         {
@@ -57,7 +57,7 @@
                 "JavaScript"
             ],
             "url": "https://madeperu.com/",
-            "img": "./assets/img/proyects/made.png",
+            "img": "assets/img/proyects/made.png",
             "featured": true
         }
     ],
@@ -71,7 +71,7 @@
                 "Mobile App"
             ],
             "url": "https://www.figma.com/proto/iwc61aVL4Cqj7nWmgvclRS/Ponte-Pilas",
-            "img": "./assets/img/proyects/pontepilas.png",
+            "img": "assets/img/proyects/pontepilas.png",
             "featured": true
         }
     ],
@@ -87,7 +87,7 @@
                 "Hardware"
             ],
             "url": "",
-            "img": "./assets/img/proyects/proximamente.png",
+            "img": "assets/img/proyects/proximamente.png",
             "featured": false,
             "status": "En desarrollo"
         }
@@ -101,7 +101,7 @@
                 "WorkSpace"
             ],
             "url": "",
-            "img": "./assets/img/proyects/proximamente.png",
+            "img": "assets/img/proyects/proximamente.png",
             "featured": true,
             "status": "Demostración"
         }
