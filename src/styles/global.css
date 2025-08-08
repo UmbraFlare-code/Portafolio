@@ -63,7 +63,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8rem;
-  background-image: url("/src/assets/icons/curveNegro.svg");
+  background-image: url("/assets/icons/curveNegro.svg");
   background-repeat: no-repeat;
   background-position: top center;
   padding: 0 2rem;

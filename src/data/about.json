@@ -32,25 +32,25 @@
       "title": "FESTI CODE 1° Edición",
       "tags": ["C++"],
       "date": "12/12/2022",
-      "image": "./src/assets/img/certification/certificado-1.webp"
+      "image": "./assets/img/certification/certificado-1.webp"
     },
     {
       "title": "FESTI CODE 2° Edición",
       "tags": ["C++"],
       "date": "12/12/2022",
-      "image": "./src/assets/img/certification/certificado-2.webp"
+      "image": "./assets/img/certification/certificado-2.webp"
     },
     {
       "title": "Diseño Web: de 0 a MVP",
       "tags": ["Figma"],
       "date": "13/12/2023",
-      "image": "./src/assets/img/certification/certificado-3.webp"
+      "image": "./assets/img/certification/certificado-3.webp"
     },
     {
       "title": "Python Essentials 1",
       "tags": ["Python"],
       "date": "14/12/2023",
-      "image": "./src/assets/img/certification/certificado-4.webp"
+      "image": "./assets/img/certification/certificado-4.webp"
     }
   ],
   "awards": [
@@ -58,7 +58,7 @@
       "title": "Tercer puesto en FESTI CODE 2° Edición - Categoría C++",
       "tags": ["C++", "Algoritmos"],
       "date": "14/12/2023",
-      "image": "./src/assets/img/certification/premio1.webp"
+      "image": "./assets/img/certification/premio1.webp"
     }
   ]
 }

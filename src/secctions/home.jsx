@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { SiLinkedin, SiGithub, SiWhatsapp } from 'react-icons/si';
 import { FaFilePdf } from 'react-icons/fa6';
 import Button from '../components/ui/button'; 
-import foto from '../assets/img/perfil.webp';
-import logo1 from '../assets/icons/logo.svg';
+import foto from '/assets/img/perfil.webp';
+import logo1 from '/assets/icons/logo.svg';
 import homeData from '../data/home.json';
 import contactData from '../data/contact.json';
 
