@@ -1,0 +1,105 @@
+.proyectos-section {
+  color: var(--text-color);
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  justify-items: center;
+}
+
+.proyectos-title {
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+.proyectos-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.proyectos-wrapper{
+  width: 100%;
+}
+
+.proyectos-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 1rem 2rem; /* padding lateral crea espacio para sombreado */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* para navegadores modernos */
+}
+
+.proyectos-buttons > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.proyectos-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Botones internos */
+.btn-toggle {
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--bg-secondary);
+  color: var(--bg-secondary);
+  border-radius: 999px;
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-toggle.active {
+  background: var(--bg-secondary);
+  color: var(--bg-color);
+}
+
+
+.ver-mas-container {
+  text-align: center;
+}
+
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 columnas por defecto */
+  gap: 2rem;
+  justify-items: center;
+  max-width: 1500px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* <= 1000px: una sola columna */
+@media (max-width: 1400px) {
+  .proyectos-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+/* <= 700px: móvil, misma columna pero con margen menor */
+@media (max-width: 700px) {
+  .proyectos-grid {
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  .proyectos-buttons {
+    justify-content: start;
+  }
+}

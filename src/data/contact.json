@@ -1,0 +1,82 @@
+{
+  "title": "Contacto",
+  "subtitle": "¿Interesado en trabajar juntos?",
+  "description": "Estoy siempre abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme si tienes algún proyecto en mente o simplemente quieres conversar sobre tecnología.",
+  "email": {
+    "address": "umaxuel@gmail.com",
+    "mailtoUrl": "mailto:umaxuel@gmail.com?subject=Interesado%20en%20tu%20Trabajo&body=Hola%20Francis!%20He%20visto%20tu%20portafolio%20y%20me%20gustaría%20discutir%20una%20oportunidad%20de%20colaboración."
+  },
+  "phone": {
+    "number": "+51 926061849",
+    "whatsappUrl": "https://wa.me/51926061849?text=Hola%20Francis!%20Vi%20tu%20portafolio%20y%20me%20interesa%20colaborar%20contigo."
+  },
+  "location": "Huancayo, Perú",
+  "availability": "Disponible para proyectos freelance y oportunidades laborales",
+  "responseTime": "Respondo normalmente en 24 horas",
+  "socialLinks": [
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/maxuel-urquizo-oré-2ba4b1279",
+      "icon": "SiLinkedin",
+      "description": "Perfil profesional en LinkedIn"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/UmbraFlare-code",
+      "icon": "SiGithub",
+      "description": "Repositorios de código en GitHub"
+    },
+    {
+      "name": "CV",
+      "icon": "FaFilePdf",
+      "url": "https://rxresu.me/umbraflare-code/cv"
+    },
+    {
+      "name": "WhatsApp",
+      "url": "https://wa.me/51926061849",
+      "icon": "SiWhatsapp",
+      "description": "Contacto por WhatsApp"
+    }
+  ],
+  "quickLinks": [
+    {
+      "name": "Inicio",
+      "url": "#home"
+    },
+    {
+      "name": "Sobre mí",
+      "url": "#about"
+    },
+    {
+      "name": "Proyectos",
+      "url": "#projects"
+    },
+    {
+      "name": "Contacto",
+      "url": "#contact"
+    }
+  ],
+  "services": [
+    {
+      "name": "Desarrollo Web",
+      "description": "Aplicaciones web modernas con React y tecnologías actuales"
+    },
+    {
+      "name": "Diseño UX/UI",
+      "description": "Interfaces intuitivas y experiencias de usuario optimizadas"
+    },
+    {
+      "name": "Desarrollo de Software",
+      "description": "Soluciones personalizadas en Python, C++ y otros lenguajes"
+    },
+    {
+      "name": "Sistemas Embebidos",
+      "description": "Proyectos con Arduino y microcontroladores"
+    },
+    {
+      "name": "Automatizaciones",
+      "description": " Proyectos que usan formularios, hojas de cálculo y envían PDFs automáticamente por correo de Google."
+    }
+  ],
+  "copyright": "© 2025 Francis M. Urquizo Oré. Todos los derechos reservados."
+}

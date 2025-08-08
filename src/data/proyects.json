@@ -1,0 +1,109 @@
+{
+    "title": "Proyectos",
+    "subtitle": "Algunos de mis trabajos más destacados",
+    "categories": {
+        "web": "Desarrollo Web",
+        "general": "Diseño UX/UI",
+        "hardware": "Hardware y Sistemas",
+        "automat": "Automatizaciones"
+    },
+    "web": [
+        {
+            "name": "Forest Fall Silent",
+            "description": "Proyecto de concurso para la NASA Space App orientado a la concientización de la generación de CO₂.",
+            "tags": [
+                "React",
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "url": "https://github.com/UmbraFlare-code/Forest-fall-silent",
+            "img": "./src/assets/img/proyects/forestfallsilent.webp",
+            "featured": false
+        },
+        {
+            "name": "Portafolio Personal",
+            "description": "Portafolio personal realizado en React. Muestra de mis proyectos y habilidades.",
+            "tags": [
+                "React",
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "url": "https://github.com/UmbraFlare-code/Portfolio",
+            "img": "./src/assets/img/proyects/portfolio.png",
+            "featured": false
+        },
+        {
+            "name": "ACM - Landing page",
+            "description": "Pagina de Grupo estudiantil ACM con el motivo de presentar los desarrollos del grupo.",
+            "tags": [
+                "React",
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "url": "https://acm-uc.netlify.app/",
+            "img": "./src/assets/img/proyects/ACM.png",
+            "featured": true
+        },
+        {
+            "name": "MADE",
+            "description": "Desarollo de pagina landing pague para la empresa Consultara MADE. con despliegue en hostiguer y cambio de dominio de goodady",
+            "tags": [
+                "React",
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "url": "https://madeperu.com/",
+            "img": "./src/assets/img/proyects/made.png",
+            "featured": true
+        }
+    ],
+    "general": [
+        {
+            "name": "Ponte Pilas",
+            "description": "Diseño de una aplicación móvil para la publicación de trabajos relacionados a oficios.",
+            "tags": [
+                "Figma",
+                "UX/UI Design",
+                "Mobile App"
+            ],
+            "url": "https://www.figma.com/proto/iwc61aVL4Cqj7nWmgvclRS/Ponte-Pilas",
+            "img": "./src/assets/img/proyects/pontepilas.png",
+            "featured": true
+        }
+    ],
+    "hardware": [
+        {
+            "name": "Control de Comunicación",
+            "description": "Proyecto de Arquitectura de Software para la gestión de comunicación de una persona con discapacidad oral y auditiva.",
+            "tags": [
+                "Arduino",
+                "C++",
+                "IoT",
+                "Accessibility",
+                "Hardware"
+            ],
+            "url": "",
+            "img": "./src/assets/img/proyects/proximamente.png",
+            "featured": false,
+            "status": "En desarrollo"
+        }
+    ],
+    "automat": [
+        {
+            "name": "Correos de seguimiento automatizados",
+            "description": "Gestion automatica ded correos via gmail, para realizar seguimiento de clientes.",
+            "tags": [
+                "JavaScript",
+                "WorkSpace"
+            ],
+            "url": "",
+            "img": "./src/assets/img/proyects/proximamente.png",
+            "featured": true,
+            "status": "Demostración"
+        }
+    ]
+}

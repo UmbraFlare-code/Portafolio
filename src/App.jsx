@@ -1,16 +1,23 @@
-import Header from "./components/Header/Header";
-import "./components/Header/Header.css";
-import About from "./components/About/About";
-import "./components/About/About.css";
-import Footer from "./components/Footer/Footer";
-import "./styles/global.css";
+import Home from './secctions/home'
+import Proyects from './secctions/proyects'
+import About from './secctions/about'
+import Contact from './secctions/contact'
+// import Footer from './secctions/footer'
+
+
 
 export function App() {
     return (
-        <div className="total-container">
-            <Header />
-            <About />
-            <Footer />
+        <div>
+            <main className='Main'>
+                <Home />
+                <Proyects />
+                <About />
+                <Contact />
+            </main >
+            {/*<Footer />*/}
         </div>
     );
 }
+
+export default App

@@ -1,0 +1,142 @@
+.cardP {
+  background: var(--secondary-color); /* Fondo más sólido para mejor contraste */
+  border: 1px solid rgba(195, 255, 242, 0.15); /* sutil borde */
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  color: var(--text-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  margin: 0 auto;
+  align-content: center;
+}
+
+.cardP:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 167, 38, 0.3); /* halo cálido al hover */
+}
+
+.card-desktop-layout {
+  display: grid;
+  grid-template-columns: 280px auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: var(--font-size-large);
+  color: var(--terceary-color);
+}
+
+.card-description {
+  font-size: var(--font-size-xs);
+  color: var(--bg-secondary);
+}
+
+.card-status {
+  background-color: var(--terceary-color);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: var(--font-size-small);
+  align-self: flex-start;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-tag {
+  background: transparent;
+  border: 1px solid var(--text-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card-tag:hover {
+  background: var(--terceary-color);
+  color: var(--primary-color);
+}
+
+.card-link {
+  margin-top: 0.5rem;
+  padding: 1rem 0.5rem;
+  max-width: 200px;
+  align-self: center;
+  background-color: var(--terceary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  writing-mode: vertical-lr;
+}
+
+.card-link:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+.card-image-wrapper {
+  display: flex;
+  cursor: pointer;
+  justify-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 750px) {
+  .cardP {
+    max-width: 420px;
+  }
+  .card-desktop-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .card-img {
+    max-width: 100%;
+  }
+
+  .card-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-link {
+    writing-mode: horizontal-tb;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .card-status {
+    align-self: center;
+  }
+
+  .card-tags {
+    justify-content: center;
+  }
+}

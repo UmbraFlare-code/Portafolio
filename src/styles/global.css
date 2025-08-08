@@ -1,102 +1,103 @@
+@font-face {
+  font-family: 'Monofur Nerd Font';
+  src: url('/fonts/MonofurNerdFont-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monofur Nerd Font';
+  src: url('/fonts/MonofurNerdFont-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monofur Nerd Font';
+  src: url('/fonts/MonofurNerdFont-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  /* Variables */
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --text-resaltar: #10FF00;
+  /* Colores base */
+  --primary-color:  #000F0C;  
+  --secondary-color:#0F1C19;  
+  --terceary-color: #ffa726;  
+  --bg-color:       #010E0C;
+  --bg-secondary:   #C3FFF2;
+  --text-color:     #ffffff; 
+  --hover-color:    #ffb74d;
 
-  /* Standardized colors */
-  --color-primary: #007bff;
-  --color-primary-dark: #0056b3;
-  --color-secondary: #33d9b2;
-  --color-accent: #ff6b6b;
-  --text-dark: #333333;
-  --text-muted: #666666;
-  --bg-light: #f8f9fa;
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --font-size-xs: clamp(0.65rem, 1.5vw, 0.85rem);       /* Detalles, badges, tooltips */
+  --font-size-small: clamp(0.75rem, 2vw, 1rem);         /* Descripción pequeña */
+  --font-size-base: clamp(0.85rem, 2vw, 1.125rem);      /* Texto base general */
+  --font-size-medium: clamp(0.95rem, 2.2vw, 1.25rem);   /* Subtítulos, botones */
+  --font-size-large: clamp(1.15rem, 3vw, 1.5rem);       /* Títulos de sección */
+  
+  font-family: 'Monofur Nerd Font', monospace;
   font-weight: 400;
 
-  /* Responsive text sizes */
-  --font-size-small: clamp(0.75rem, 2vw, 1rem);
-  --font-size-medium: clamp(0.8rem, 2vw, 1.25rem);
-  --font-size-large: clamp(1.25rem, 2vw, 1.5rem);
-  --font-size-xlarge: clamp(1.30rem, 2vw, 1.5rem);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  margin: 0;
-  background-color: var(--bg-color);
+  background: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden;
-  font-size: var(--font-size-medium);
+  filter: url(#noiseFilter);
 }
 
-.section-title {
-  font-size: var(--font-size-xlarge);
-  text-align: center;
-  color: var(--text-dark);
+.Main {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  background-image: url("/src/assets/icons/curveNegro.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding: 0 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .Main {
+    background-image: url("/src/assets/icons/curve.svg");
+  }  
+}
+.dynamic-text {
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.subtitle {
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  margin: 1rem 0;
+  color: var(--terceary-color);
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  mix-blend-mode: difference;
 }
 
 .total-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-.total-container > * {
+  align-items: center;
   width: 100%;
-  padding-inline: 2rem;
-  box-sizing: border-box;
-}
-
-/* Common animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Common link styles */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--color-primary-dark);
-}
-
-/* Responsive spacing */
-.spacing-sm {
-  margin: clamp(0.5rem, 2vw, 1rem);
-}
-
-.spacing-md {
-  margin: clamp(1rem, 3vw, 2rem);
-}
-
-.spacing-lg {
-  margin: clamp(2rem, 5vw, 3rem);
-}
-
-/* Media queries for responsive layouts */
-@media (max-width: 992px) {
-  :root {
-    --font-size-large: clamp(1.1rem, 2.5vw, 1.4rem);
-  }
+  min-height: 100vh;
 }

@@ -1,0 +1,112 @@
+.home-section {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  min-height: 100vh;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1920px;
+}
+
+.home-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-self: flex-start;
+  margin-top: 4rem;
+
+  span {
+    font-size: var(--font-size-large);
+    width: 100%;
+  }
+}
+
+.icon-redes {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  justify-content: space-between;
+}
+
+.icon-social .icon {
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.icon-social:hover .icon {
+  color: var(--hover-color);
+  scale: 1.2;
+  transition: all 0.3s ease;
+}
+
+.logo-home {
+  width: clamp(250px, calc(250px + (600 * ((100vw - 450px) / 1470))), 850px);
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.home-buttons {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  justify-content: space-between;
+}
+
+.home-right {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  margin-bottom: 4rem;
+  align-items: end;
+  gap: 2rem;
+  width: 100%;
+
+  p {
+    width: 100%;
+    max-width: 750px;
+    text-align: end;
+    font-size: var(--font-size-base);
+  }
+}
+
+.foto-perfil {
+  min-height: 200px;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 25%;
+}
+
+@media (max-width: 1000px) {
+  .home-section {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .icon-redes {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .contenedor-perfil {
+    visibility: hidden;
+    * {
+      height: 0;
+      width: 0;
+      min-height: 0;
+    }
+  }
+  .home-right {
+    padding-left: clamp(100px, 48vw, 300px);
+    justify-items: start;
+    justify-self: start;
+    p {
+      max-width: 450px;
+    }
+  }
+}

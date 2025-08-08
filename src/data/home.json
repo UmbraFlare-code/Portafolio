@@ -1,0 +1,10 @@
+{
+  "name": "Urquizo Oré, Francis Maxuel",
+  "title": "Ingeniero de Sistemas e Informática",
+  "description": "Apasionado por crear soluciones que integran software, hardware e interfaces accesibles. Diseño y desarrollo proyectos que conectan lo físico con lo digital, combinando tecnologías para generar experiencias funcionales e innovadoras.",
+  "img": "./img/perfil.webp",
+  "cta": {
+    "primary": "Ver proyectos",
+    "secondary": "Contacto"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "description": "Apasionado por crear soluciones innovadoras que integran hardware y software. Me especializo en tecnologías como React, Python, C++ y Arduino. Me motiva resolver problemas reales mediante la programación y el diseño inteligente.",
+  "stats": [
+    {
+      "number": "1+",
+      "label": "Años de formación"
+    },
+    {
+      "number": "5",
+      "label": "Proyectos desarrollados"
+    },
+    {
+      "number": "4",
+      "label": "Certificaciones obtenidas"
+    }
+  ],
+  "skills": {
+    "title": "Tecnologías principales",
+    "list": [
+      "JavaScript",
+      "React",
+      "CSS",
+      "Python",
+      "C++",
+      "Figma",
+      "Arduino",
+      "Git"
+    ]
+  },
+  "certifications": [
+    {
+      "title": "FESTI CODE 1° Edición",
+      "tags": ["C++"],
+      "date": "12/12/2022",
+      "image": "./src/assets/img/certification/certificado-1.webp"
+    },
+    {
+      "title": "FESTI CODE 2° Edición",
+      "tags": ["C++"],
+      "date": "12/12/2022",
+      "image": "./src/assets/img/certification/certificado-2.webp"
+    },
+    {
+      "title": "Diseño Web: de 0 a MVP",
+      "tags": ["Figma"],
+      "date": "13/12/2023",
+      "image": "./src/assets/img/certification/certificado-3.webp"
+    },
+    {
+      "title": "Python Essentials 1",
+      "tags": ["Python"],
+      "date": "14/12/2023",
+      "image": "./src/assets/img/certification/certificado-4.webp"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Tercer puesto en FESTI CODE 2° Edición - Categoría C++",
+      "tags": ["C++", "Algoritmos"],
+      "date": "14/12/2023",
+      "image": "./src/assets/img/certification/premio1.webp"
+    }
+  ]
+}
