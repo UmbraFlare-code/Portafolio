@@ -71,7 +71,7 @@ body {
 
 @media screen and (max-width: 1000px) {
   .Main {
-    background-image: url("/src/assets/icons/curve.svg");
+    background-image: url("/assets/icons/curve.svg");
   }  
 }
 .dynamic-text {
