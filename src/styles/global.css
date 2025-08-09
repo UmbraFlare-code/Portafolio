@@ -73,11 +73,6 @@ body {
   padding: 0 2rem;
 }
 
-@media screen and (max-width: 1000px) {
-  .Main {
-    background-image: url("/assets/icons/curve.svg");
-  }  
-}
 .dynamic-text {
   color: white;
   mix-blend-mode: difference;
@@ -104,4 +99,48 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
+}
+
+@media screen and (max-width: 1000px)  {
+  .Main {
+    background-image: url("/assets/icons/curve.svg");
+  }  
+}
+
+/* Estilos para orientación landscape */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  .mensaje {
+    display: flex;
+    visibility: visible;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+
+    h1, 
+    p.data1,
+    p.data2, img {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+    
+    h1::before  {
+      font-size: var(--font-size-large);
+      content: "¡Ups!";
+    }
+
+    .data1::before {
+      font-size: var(--font-size-medium);
+      content: "Esta página no está optimizada para dispositivos en orientación horizontal.";
+    }
+
+    .data2::before {
+      font-size: var(--font-size-medium);
+      content: "Por favor, voltee su dispositivo para una mejor experiencia";
+    }
+  }
+  .Main, .footer-section {
+    display: none;
+  }
 }

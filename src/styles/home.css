@@ -110,3 +110,13 @@
     }
   }
 }
+
+@media (max-height: 400px) {
+  .home-right {
+    p {
+      visibility: hidden;
+      height: 100px;
+      width: 0;
+    }
+  }
+}

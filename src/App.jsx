@@ -2,7 +2,7 @@ import Home from './secctions/home'
 import Proyects from './secctions/proyects'
 import About from './secctions/about'
 import Contact from './secctions/contact'
-// import Footer from './secctions/footer'
+import Footer from './secctions/footer'
 
 
 
@@ -15,7 +15,7 @@ export function App() {
                 <About />
                 <Contact />
             </main >
-            {/*<Footer />*/}
+            <Footer />
         </div>
     );
 }

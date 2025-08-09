@@ -11,7 +11,7 @@ function Proyects() {
   const labels = data.categories || {};
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
-  const [mostrarTodo, setMostrarTodo] = useState(true);
+  const [mostrarTodo, setMostrarTodo] = useState(false);
   const gridRef = useRef(null);
 
   useEffect(() => {
