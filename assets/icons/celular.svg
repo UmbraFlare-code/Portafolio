@@ -1,0 +1,31 @@
+<svg width="97" height="60" viewBox="0 0 97 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_167_50)">
+<g clip-path="url(#clip1_167_50)">
+<path d="M26 0C30.4183 0 34 3.58172 34 8V52C34 56.4183 30.4183 60 26 60H8C3.58172 60 2.2549e-07 56.4183 0 52V8C0 3.58172 3.58172 1.61069e-08 8 0H26ZM9 2C5.13401 2 2 5.13401 2 9V51C2 54.866 5.13401 58 9 58H25C28.866 58 32 54.866 32 51V9C32 5.13401 28.866 2 25 2H9Z" fill="#C3FFF2"/>
+<line x1="11.5" y1="55.5" x2="22.5" y2="55.5" stroke="#C3FFF2" stroke-linecap="round"/>
+<circle cx="17" cy="5" r="1" fill="#C3FFF2"/>
+</g>
+<g clip-path="url(#clip2_167_50)">
+<path d="M97 52C97 56.4183 93.4183 60 89 60H45C40.5817 60 37 56.4183 37 52V34C37 29.5817 40.5817 26 45 26L89 26C93.4183 26 97 29.5817 97 34V52ZM95 35C95 31.134 91.866 28 88 28L46 28C42.134 28 39 31.134 39 35V51C39 54.866 42.134 58 46 58H88C91.866 58 95 54.866 95 51V35Z" fill="#C3FFF2" fill-opacity="0.2"/>
+<line x1="41.5" y1="37.5" x2="41.5" y2="48.5" stroke="#C3FFF2" stroke-opacity="0.2" stroke-linecap="round"/>
+<circle cx="92" cy="43" r="1" transform="rotate(90 92 43)" fill="#C3FFF2" fill-opacity="0.2"/>
+<circle cx="92" cy="43" r="0.5" transform="rotate(90 92 43)" stroke="#C3FFF2" stroke-opacity="0.2"/>
+</g>
+<path d="M41 10.4159L45.9962 13.3093L46.0038 7.5358L41 10.4159ZM64.0009 21.9166L64.5009 21.9166C64.5009 19.2648 64.3436 17.1643 63.8324 15.5196C63.313 13.8488 62.4255 12.6399 60.9892 11.7972C59.58 10.9705 57.6793 10.5186 55.175 10.262C52.6645 10.0046 49.4897 9.93894 45.4997 9.92189L45.4976 10.4219L45.4954 10.9219C49.488 10.9389 52.6174 11.005 55.073 11.2567C57.5349 11.5091 59.2621 11.9434 60.4832 12.6598C61.6771 13.3602 62.4219 14.3511 62.8774 15.8164C63.341 17.308 63.5009 19.28 63.5009 21.9166L64.0009 21.9166Z" fill="url(#paint0_linear_167_50)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_167_50" x1="41" y1="10.5" x2="67" y2="13" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C3FFF2"/>
+<stop offset="1" stop-color="#C3FFF2" stop-opacity="0.2"/>
+</linearGradient>
+<clipPath id="clip0_167_50">
+<rect width="97" height="60" fill="white"/>
+</clipPath>
+<clipPath id="clip1_167_50">
+<rect width="34" height="60" fill="white"/>
+</clipPath>
+<clipPath id="clip2_167_50">
+<rect width="34" height="60" fill="white" transform="matrix(0 1 -1 0 97 26)"/>
+</clipPath>
+</defs>
+</svg>
