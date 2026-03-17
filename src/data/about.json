@@ -18,9 +18,11 @@
     "title": "Tecnologías principales",
     "list": [
       "JavaScript",
+      "TypeScript",
       "React",
+      "Tailwind CSS",
       "CSS",
-      "Python",
+      "AWS",
       "C++",
       "Figma",
       "Arduino",

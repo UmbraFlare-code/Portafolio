@@ -1,3 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #0a0a09;
+  --color-tech-orange: #ff5f1f;
+  --color-tech-orange-glow: rgba(255, 95, 31, 0.15);
+  --color-negative: #fafafa;
+
+  --font-mono: "Monofur Nerd Font", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 @font-face {
   font-family: 'Monofur Nerd Font';
   src: url('/fonts/MonofurNerdFont-Regular.ttf') format('truetype');
@@ -22,125 +35,28 @@
   font-display: swap;
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  /* Colores base */
-  --primary-color:  #000F0C;  
-  --secondary-color:#0F1C19;  
-  --terceary-color: #ffa726;  
-  --bg-color:       #010E0C;
-  --bg-secondary:   #C3FFF2;
-  --text-color:     #ffffff; 
-  --hover-color:    #ffb74d;
-
-  --font-size-xs: clamp(0.65rem, 1.5vw, 0.85rem);       /* Detalles, badges, tooltips */
-  --font-size-small: clamp(0.75rem, 2vw, 1rem);         /* Descripción pequeña */
-  --font-size-base: clamp(0.85rem, 2vw, 1.125rem);      /* Texto base general */
-  --font-size-medium: clamp(0.95rem, 2.2vw, 1.25rem);   /* Subtítulos, botones */
-  --font-size-large: clamp(1.15rem, 3vw, 1.5rem);       /* Títulos de sección */
-  
-  font-family: 'Monofur Nerd Font', monospace;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg-color);
-  color: var(--text-color);
-  filter: url(#noiseFilter);
+  @apply bg-dark-bg text-negative antialiased overflow-x-hidden;
 }
 
-.Main {
-  display: flex;
-  flex-direction: column;
-  gap: 8rem;
-  background-image: url("/assets/icons/curveNegro.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  padding: 0 2rem;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.dynamic-text {
-  color: white;
-  mix-blend-mode: difference;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.subtitle {
-  font-size: var(--font-size-h3);
-  font-weight: 600;
-  margin: 1rem 0;
-  color: var(--terceary-color);
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 95, 31, 0.1);
+  border-radius: 10px;
 }
 
-.description {
-  font-size: var(--font-size-base);
-  color: var(--text-color);
-  opacity: 0.9;
-  margin-top: 0.5rem;
-  mix-blend-mode: difference;
-}
-
-.total-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-}
-
-@media screen and (max-width: 1000px)  {
-  .Main {
-    background-image: url("/assets/icons/curve.svg");
-  }  
-}
-
-/* Estilos para orientación landscape */
-@media screen and (max-width: 900px) and (orientation: landscape) {
-  .mensaje {
-    display: flex;
-    visibility: visible;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-
-    h1, 
-    p.data1,
-    p.data2, img {
-      color: var(--text-color);
-      margin-bottom: 1rem;
-    }
-    
-    h1::before  {
-      font-size: var(--font-size-large);
-      content: "¡Ups!";
-    }
-
-    .data1::before {
-      font-size: var(--font-size-medium);
-      content: "Esta página no está optimizada para dispositivos en orientación horizontal.";
-    }
-
-    .data2::before {
-      font-size: var(--font-size-medium);
-      content: "Por favor, voltee su dispositivo para una mejor experiencia";
-    }
-  }
-  .Main, .footer-section {
-    display: none;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 95, 31, 0.3);
 }
