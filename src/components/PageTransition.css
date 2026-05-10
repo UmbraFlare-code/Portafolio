@@ -1,0 +1,95 @@
+@reference "../styles/global.css";
+
+/* ─── Page Transition Splash Overlay ───────────────── */
+.page-transition-overlay {
+  @apply fixed inset-0 pointer-events-none overflow-hidden;
+  z-index: 9999;
+}
+
+.page-transition-overlay .transition-panel {
+  @apply absolute inset-0 will-change-transform;
+}
+
+.page-transition-overlay .transition-panel--left {
+  @apply bg-dark-bg origin-left;
+}
+
+.page-transition-overlay .transition-panel--right {
+  @apply bg-dark-bg origin-right;
+}
+
+/* Center logo / text during transition */
+.page-transition-overlay .transition-brand {
+  @apply absolute inset-0 flex flex-col items-center justify-center opacity-0;
+  z-index: 20;
+}
+
+.page-transition-overlay .transition-brand__icon {
+  @apply w-14 h-14 border-2 border-tech-orange flex items-center justify-center mb-5 relative;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(255, 95, 31, 0.15), inset 0 0 20px rgba(255, 95, 31, 0.05);
+}
+
+.page-transition-overlay .transition-brand__icon::before {
+  content: '>';
+  @apply text-tech-orange font-mono font-bold;
+  font-size: 28px;
+  animation: blink-cursor 0.8s steps(1) infinite;
+  text-shadow: 0 0 12px rgba(255, 95, 31, 0.6);
+}
+
+.page-transition-overlay .transition-brand__name {
+  @apply font-mono text-sm font-bold uppercase text-negative;
+  letter-spacing: 0.3em;
+}
+
+.page-transition-overlay .transition-brand__line {
+  @apply w-0 h-px mt-3;
+  background: linear-gradient(90deg, transparent, var(--color-tech-orange), transparent);
+}
+
+/* Decorative scan lines */
+.page-transition-overlay .transition-scanlines {
+  @apply absolute inset-0 opacity-0;
+  z-index: 10;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 95, 31, 0.03) 2px,
+      rgba(255, 95, 31, 0.03) 4px);
+}
+
+/* Corner glitch blocks */
+.page-transition-overlay .transition-glitch {
+  @apply absolute w-[60px] h-[3px] bg-tech-orange opacity-0;
+  z-index: 20;
+  box-shadow: 0 0 8px rgba(255, 95, 31, 0.4);
+}
+
+.page-transition-overlay .transition-glitch--tl {
+  @apply top-10 left-10;
+}
+
+.page-transition-overlay .transition-glitch--tr {
+  @apply top-10 right-10;
+}
+
+.page-transition-overlay .transition-glitch--bl {
+  @apply bottom-10 left-10;
+}
+
+.page-transition-overlay .transition-glitch--br {
+  @apply bottom-10 right-10;
+}
+
+@keyframes blink-cursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}

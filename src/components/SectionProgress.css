@@ -1,80 +1,48 @@
+@reference "../styles/global.css";
+
 .section-progress {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  @apply fixed right-8 top-1/2 flex flex-col items-end;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  transform: translateY(-50%);
 }
 
 .progress-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  @apply list-none p-0 m-0 flex flex-col gap-6;
 }
 
 .progress-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  @apply relative flex items-center gap-4;
 }
 
 .progress-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  @apply w-3 h-3 rounded-full cursor-pointer transition-all duration-300 p-0 relative border-2 border-transparent;
   background: var(--text-muted);
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0;
-  position: relative;
 }
 
 .progress-dot:hover {
-  background: var(--secondary-color);
-  transform: scale(1.2);
+  @apply bg-tech-orange scale-125;
 }
 
 .progress-dot.active {
-  background: var(--primary-color);
-  box-shadow: 0 0 15px var(--accent-glow);
-  transform: scale(1.4);
-  border-color: var(--text-color);
+  @apply bg-tech-orange scale-150 border-negative;
+  box-shadow: 0 0 15px var(--color-tech-orange-glow);
 }
 
 .dot-label {
-  position: absolute;
+  @apply absolute backdrop-blur-md text-negative px-3 py-1.5 rounded-md opacity-0 invisible whitespace-nowrap transition-all duration-300 border border-negative/10 pointer-events-none;
   right: 2.5rem;
   background: rgba(15, 23, 21, 0.8);
-  backdrop-filter: blur(8px);
-  color: var(--text-color);
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  font-size: var(--font-size-xs);
-  opacity: 0;
-  visibility: hidden;
-  white-space: nowrap;
-  transition: all 0.3s ease;
+  font-size: 10px;
   transform: translateX(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  pointer-events: none;
 }
 
 .progress-dot:hover .dot-label {
-  opacity: 1;
-  visibility: visible;
+  @apply opacity-100 visible;
   transform: translateX(0);
 }
 
 @media (max-width: 768px) {
   .section-progress {
-    display: none; /* Hide on small mobile for cleaner UI, or move to bottom if needed */
+    @apply hidden;
   }
 }

@@ -2,13 +2,4 @@
 node_modules/
 dist/
 .env
-
-npm-debug.log*
-
-.vscode/
-build/
-*.log
-
-*.tgz
-coverage/
-*.local
+package-lock.json
