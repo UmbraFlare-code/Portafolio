@@ -1,51 +1,104 @@
-# 🌐 Portfolio - Francis Urquizo Oré
+# 🌐 Portafolio - Francis Urquizo Oré
 
-This repository contains my personal portfolio website built with React and Vite, showcasing my projects, skills, and professional experience in Software Engineering and Computer Science.
+[English version](README_EN.md)
 
-![Portfolio Preview](/public/img/portafolio.webp)
+Un sitio web de portafolio moderno e interactivo construido con React y Vite, mostrando mi trayectoria a través de proyectos, habilidades y logros.
 
-## 📋 Features
+![Vista previa del Portafolio](/public/assets/img/proyects/portfolio.png)
 
-- **Responsive Design**: Optimized for all device sizes
-- **Interactive UI**: Animated components and transitions
-- **Project Showcase**: Categorized display of web and general projects
-- **Skills Section**: Visual representation of technical skills
-- **Education & Certifications**: Timeline of academic and professional achievements
-- **Awards**: Highlighting professional recognitions
+## 📋 Características
 
-## 🛠️ Technologies Used
+- **Componentes UI Dinámicos**
+  - Tarjetas de proyecto expandibles con funcionalidad de vista previa
+  - Exhibición interactiva de habilidades con representación de iconos
+  - Transiciones animadas entre secciones
+  - Sistema de navegación responsivo
 
-- **React**: Frontend library for building the user interface
-- **Vite**: Next-generation frontend tooling
-- **CSS**: Custom styling with animations
-- **React Icons**: For UI icons
-- **Intersection Observer API**: For scroll animations
+- **Muestra de Proyectos**
+  - Visualización categorizada de proyectos (Web, Móvil, etc.)
+  - Capacidades de filtrado de proyectos
+  - Enlaces a vista previa en vivo y código fuente
+  - Descripciones detalladas de proyectos
 
-## 🔍 Project Structure
+- **Perfil Profesional**
+  - Visualización de habilidades con iconos de tecnología
+  - Línea de tiempo de certificaciones
+  - Exhibición de premios profesionales
+  - Opción de CV descargable
+
+- **Diseño Responsivo**
+  - Enfoque mobile-first
+  - Diseños adaptativos para todas las pantallas
+  - Interfaz táctil amigable
+  - Imágenes y recursos optimizados
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Framework Frontend**
+  - React 18
+  - Vite 4
+  - CSS3 con propiedades personalizadas
+
+- **Componentes UI**
+  - React Icons
+  - Componentes animados personalizados
+  - Manejo responsivo de imágenes
+  - Layouts con CSS Grid/Flexbox
+
+- **Rendimiento**
+  - Carga diferida de imágenes
+  - División de código por componentes
+  - Entrega optimizada de recursos
+  - Estructura optimizada para SEO
+
+## 🔍 Estructura del Proyecto
 
 ```plaintext
 Portfolio/
+├── public/
+│   └── assets/
+│       ├── icons/          # Iconos UI y marca
+│       └── img/
+│           ├── perfil/     # Imágenes de perfil
+│           ├── awards/     # Certificados de premios
+│           ├── certs/      # Certificaciones
+│           └── projects/   # Vistas previas de proyectos
 ├── src/
-│   ├── assets/         # Images and static resources
-│   ├── components/     # React components
-│   │   ├── About/      # About section components
-│   │   ├── AboutMe/    # Personal information section
-│   │   ├── Awards/     # Awards and recognitions
-│   │   ├── Education/  # Education and certifications
-│   │   ├── Header/     # Portfolio header
-│   │   ├── Projects/   # Projects showcase
-│   │   └── common/     # Reusable components
-│   ├── data/           # JSON data files
-│   ├── styles/         # Global styles
-│   ├── App.jsx         # Main application component
-│   └── main.jsx        # Application entry point
-└── public/             # Public assets
+│   ├── components/
+│   │   └── ui/            # Componentes UI reutilizables
+│   ├── data/              # Archivos JSON de datos
+│   ├── sections/          # Secciones principales
+│   ├── styles/           # Módulos CSS
+│   ├── App.jsx           # Componente principal
+│   └── main.jsx         # Punto de entrada
+└── package.json
 ```
-## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📬 Contact
-- LinkedIn: [Urquizo Oré Francis](https://www.linkedin.com/in/urquizo-oré-francis/)
+## 🚀 Comenzando
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/UmbraFlare-code/portfolio.git
+```
+
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Ejecutar servidor de desarrollo:
+```bash
+npm run dev
+```
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 📬 Contacto
+
+- LinkedIn: [Urquizo Oré Francis](https://linkedin.com/in/maxuel-urquizo-oré-2ba4b1279)
 - GitHub: [UmbraFlare-code](https://github.com/UmbraFlare-code)
 - Email: umaxuel@gmail.com
-- CV: [Resume](https://rxresu.me/umbraflare-code/cv)
+- Portafolio: [Sitio Web](https://umbraflare-code.github.io/portfolio/)
+- CV: [Currículum](https://rxresu.me/umbraflare-code/cv)

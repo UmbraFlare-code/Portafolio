@@ -1,233 +1,62 @@
-:root {
-  /* Variables */
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --text-resaltar: #10FF00;
+@import "tailwindcss";
 
-  /* Standardized colors */
-  --color-primary: #007bff;
-  --color-primary-dark: #0056b3;
-  --color-secondary: #33d9b2;
-  --color-accent: #ff6b6b;
-  --text-dark: #333333;
-  --text-muted: #666666;
-  --bg-light: #f8f9fa;
+@theme {
+  --color-dark-bg: #0a0a09;
+  --color-tech-orange: #ff5f1f;
+  --color-tech-orange-glow: rgba(255, 95, 31, 0.15);
+  --color-negative: #fafafa;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --font-mono: "Monofur Nerd Font", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@font-face {
+  font-family: 'Monofur Nerd Font';
+  src: url('/fonts/MonofurNerdFont-Regular.ttf') format('truetype');
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-  /* Responsive text sizes */
-  --font-size-small: clamp(0.75rem, 2vw, 1rem);
-  --font-size-medium: clamp(0.8rem, 2vw, 1.25rem);
-  --font-size-large: clamp(1.25rem, 2vw, 1.5rem);
-  --font-size-xlarge: clamp(1.30rem, 2vw, 1.5rem);
+@font-face {
+  font-family: 'Monofur Nerd Font';
+  src: url('/fonts/MonofurNerdFont-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monofur Nerd Font';
+  src: url('/fonts/MonofurNerdFont-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   @apply bg-dark-bg text-negative antialiased overflow-x-hidden;
-
-  @media (pointer: fine) {
-    cursor: none;
-  }
-}
-
-a,
-button,
-[role="button"] {
-  @media (pointer: fine) {
-    cursor: none;
-  }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
-  height: 6px;
 }
 
-.total-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.total-container>* {
-  width: 100%;
-  padding-inline: 2rem;
-  box-sizing: border-box;
-}
-
-/* Common animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 95, 31, 0.1);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 95, 31, 0.3);
-}
-
-/* Thin Scrollbar Utility */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-}
-
-/* ─── Markdown / Prose Article Styles ───────────────── */
-.prose-portfolio {
-  color: rgba(250, 250, 250, 0.7);
-  line-height: 1.8;
-  font-size: 0.95rem;
-}
-
-.prose-portfolio h1,
-.prose-portfolio h2,
-.prose-portfolio h3,
-.prose-portfolio h4 {
-  color: #fafafa;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-top: 2em;
-  margin-bottom: 0.75em;
-}
-
-.prose-portfolio h1 {
-  font-size: 2rem;
-}
-
-.prose-portfolio h2 {
-  font-size: 1.5rem;
-  border-bottom: 1px solid rgba(250, 250, 250, 0.05);
-  padding-bottom: 0.5em;
-}
-
-.prose-portfolio h3 {
-  font-size: 1.2rem;
-}
-
-.prose-portfolio h4 {
-  font-size: 1rem;
-}
-
-.prose-portfolio p {
-  margin-bottom: 1.25em;
-}
-
-.prose-portfolio a {
-  color: #ff5f1f;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s;
-}
-
-.prose-portfolio a:hover {
-  opacity: 0.8;
-}
-
-.prose-portfolio strong {
-  color: #ff5f1f;
-  font-weight: 700;
-}
-
-.prose-portfolio em {
-  color: rgba(250, 250, 250, 0.85);
-}
-
-.prose-portfolio ul,
-.prose-portfolio ol {
-  padding-left: 1.5em;
-  margin-bottom: 1.25em;
-}
-
-.prose-portfolio li {
-  margin-bottom: 0.5em;
-}
-
-.prose-portfolio ul li::marker {
-  color: rgba(255, 95, 31, 0.5);
-}
-
-.prose-portfolio ol li::marker {
-  color: rgba(255, 95, 31, 0.6);
-  font-weight: 700;
-}
-
-.prose-portfolio blockquote {
-  border-left: 3px solid #ff5f1f;
-  padding: 0.75em 1.25em;
-  margin: 1.5em 0;
-  background: rgba(250, 250, 250, 0.03);
-  border-radius: 0 0.75rem 0.75rem 0;
-  color: rgba(250, 250, 250, 0.6);
-  font-style: italic;
-}
-
-.prose-portfolio code {
-  color: #ff5f1f;
-  background: rgba(255, 95, 31, 0.08);
-  padding: 0.15em 0.4em;
-  border-radius: 0.3em;
-  font-size: 0.875em;
-  font-weight: 500;
-}
-
-.prose-portfolio pre {
-  background: rgba(250, 250, 250, 0.03);
-  border: 1px solid rgba(250, 250, 250, 0.06);
-  border-radius: 0.75rem;
-  padding: 1.25em;
-  overflow-x: auto;
-  margin: 1.5em 0;
-}
-
-.prose-portfolio pre code {
-  color: rgba(250, 250, 250, 0.8);
-  background: transparent;
-  padding: 0;
-  font-size: 0.85em;
-}
-
-.prose-portfolio img {
-  border-radius: 0.75rem;
-  margin: 1.5em 0;
-  max-width: 100%;
-}
-
-.prose-portfolio hr {
-  border: none;
-  border-top: 1px solid rgba(250, 250, 250, 0.06);
-  margin: 2.5em 0;
-}
-
-.prose-portfolio table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.875em;
-}
-
-.prose-portfolio th {
-  text-align: left;
-  padding: 0.75em 1em;
-  border-bottom: 2px solid rgba(255, 95, 31, 0.2);
-  color: #ff5f1f;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8em;
-}
-
-.prose-portfolio td {
-  padding: 0.75em 1em;
-  border-bottom: 1px solid rgba(250, 250, 250, 0.05);
-}
-
-.prose-portfolio tr:hover td {
-  background: rgba(250, 250, 250, 0.02);
 }

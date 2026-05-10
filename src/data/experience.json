@@ -1,0 +1,30 @@
+[
+  {
+    "company": "Onza - Agencia de Marketing",
+    "role": "Desarrollador Web",
+    "period": "Septiembre 2025 - Febrero 2026",
+    "description": "Desarrollo de soluciones web para clientes de la agencia, incluyendo landing pages, e-commerce y aplicaciones interactivas.",
+    "tags": [
+      "CMS",
+      "UX/UI",
+      "PHP",
+      "CSS",
+      "Figma"
+    ]
+  },
+  {
+    "company": "Imcetron",
+    "role": "Programador Backend Junior",
+    "period": "Marzo 2026 - Actualidad",
+    "description": "Desarollo de CRM segun metas y objetivos marcados por el cliente. Endpoints, sanitizacion de la informacion y seguridad de las consultas como autenticación con JWT",
+    "tags": [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "JavaScript",
+      "TypeScript",
+      "CSS",
+      "Git"
+    ]
+  }
+]
