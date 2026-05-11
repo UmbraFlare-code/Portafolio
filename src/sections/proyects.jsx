@@ -1,13 +1,14 @@
 /* global window */
 import React, { useState, useEffect } from 'react';
 import Card from '../components/ui/cardProyect';
-import proyectosData from '../data/proyects.json';
-import { ChevronDown, ChevronUp, Filter } from 'lucide-react';
+import { ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
+import { getProjects, getProjectCategories } from '../services/dataService';
+import Button from '../components/ui/Button';
 
 function Proyects() {
-  const data = proyectosData;
-  const categories = data.categories || {};
-  const categoryKeys = Object.keys(categories);
+  const [allProjects, setAllProjects] = useState([]);
+  const [categories, setCategories] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const [activeCategory, setActiveCategory] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -21,74 +22,102 @@ function Proyects() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const allProjects = [
-    ...data.web.map(p => ({ ...p, cat: 'web' })),
-    ...data.general.map(p => ({ ...p, cat: 'general' })),
-    ...data.hardware.map(p => ({ ...p, cat: 'hardware' })),
-    ...data.automat.map(p => ({ ...p, cat: 'automat' }))
-  ].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [projects, cats] = await Promise.all([
+          getProjects(),
+          getProjectCategories(),
+        ]);
+        setAllProjects(projects);
+        setCategories(cats);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching projects:', err);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
-  const filteredProjects = activeCategory 
-    ? allProjects.filter(p => p.cat === activeCategory)
+  const categoryKeys = Object.keys(categories);
+
+  const filteredProjects = activeCategory
+    ? allProjects.filter(p => p.categoryKey === activeCategory)
     : allProjects;
 
   const displayLimit = isMobile ? 3 : 6;
   const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, displayLimit);
 
+  if (loading) {
+    return (
+      <section id="proyects" className="flex flex-col gap-12 scroll-mt-24">
+        <div className="flex flex-col gap-4">
+          <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Proyectos</h3>
+        </div>
+        <div className="flex items-center justify-center py-16">
+          <Loader2 size={24} className="animate-spin text-tech-orange" />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="proyects" className="flex flex-col gap-12 scroll-mt-24">
       <div className="flex flex-col gap-4">
         <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Proyectos</h3>
-        <h2 className="text-4xl font-bold text-negative">{data.title}</h2>
-        <p className="text-negative/60 text-lg max-w-xl">{data.subtitle}</p>
+        <h2 className="text-4xl font-bold text-negative">Proyectos</h2>
+        <p className="text-negative/60 text-lg max-w-xl">Una selección de mis trabajos más recientes y destacados.</p>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-        <button
+      <div className="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-thin">
+        <Button
+          variant={!activeCategory ? 'primary' : 'secondary'}
+          size="sm"
           onClick={() => setActiveCategory(null)}
-          className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${!activeCategory ? 'bg-tech-orange border-tech-orange text-white' : 'bg-negative/5 border-negative/10 text-negative/60 hover:border-negative/30'}`}
+          className="rounded-full flex-shrink-0"
         >
           Todos
-        </button>
+        </Button>
         {categoryKeys.map((key) => (
-          <button
+          <Button
             key={key}
+            variant={activeCategory === key ? 'primary' : 'secondary'}
+            size="sm"
             onClick={() => setActiveCategory(key)}
-            className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${activeCategory === key ? 'bg-tech-orange border-tech-orange text-white' : 'bg-negative/5 border-negative/10 text-negative/60 hover:border-negative/30'}`}
+            className="rounded-full flex-shrink-0"
           >
             {categories[key]}
-          </button>
+          </Button>
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Projects List (Single Column) */}
+      <div className="flex flex-col gap-12">
         {visibleProjects.map((project, index) => (
-          <div 
-            key={`${project.name}-${index}`}
+          <Card
+            key={project.id || `${project.name}-${index}`}
+            data={project}
+            isDimmed={hoveredIndex !== null && hoveredIndex !== index}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <Card 
-              data={project} 
-              isDimmed={hoveredIndex !== null && hoveredIndex !== index}
-            />
-          </div>
+          />
         ))}
       </div>
 
       {filteredProjects.length > displayLimit && (
-        <button
+        <Button
+          variant="outline"
           onClick={() => setShowAll(!showAll)}
-          className="group flex items-center gap-3 self-center px-8 py-4 rounded-xl border border-negative/10 hover:border-tech-orange/50 transition-all text-sm font-bold uppercase tracking-widest text-negative/60 hover:text-tech-orange lg:hover:bg-tech-orange/5"
+          className="self-center"
         >
           {showAll ? (
             <>Ver menos <ChevronUp size={18} className="group-hover:-translate-y-1 transition-transform" /></>
           ) : (
             <>Ver todos los proyectos <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" /></>
           )}
-        </button>
+        </Button>
       )}
     </section>
   );
