@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import ProjectDetails from './pages/ProjectDetails';
 import ExperienceDetails from './pages/ExperienceDetails';
@@ -19,6 +19,7 @@ export function App() {
             <Route path="/experience/:slug" element={<ExperienceDetails />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}
       </PageTransition>
