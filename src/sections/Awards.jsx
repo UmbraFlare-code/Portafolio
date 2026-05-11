@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Loader2, X, FileText, Calendar } from 'lucide-react';
-import { getAwards, getEntitySkills } from '../services/dataService';
+import SkillTag from '../components/ui/SkillTag';
+import { getAwards } from '../services/dataService';
 
 const Awards = () => {
   const [awards, setAwards] = useState([]);
@@ -13,17 +14,6 @@ const Awards = () => {
         const data = await getAwards();
         setAwards(data || []);
         setLoading(false);
-
-        if (data) {
-          data.forEach(async (award) => {
-            const tags = await getEntitySkills('award_skills', 'award_id', award.id);
-            if (tags.length > 0) {
-              setAwards(prev => prev.map(a =>
-                a.id === award.id ? { ...a, tags } : a
-              ));
-            }
-          });
-        }
       } catch (err) {
         console.error('Error fetching awards:', err);
         setLoading(false);
@@ -56,9 +46,7 @@ const Awards = () => {
               {award.tags && award.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-1">
                   {award.tags.map(tag => (
-                    <span key={tag} className="text-[9px] px-2 py-0.5 rounded bg-tech-orange/10 text-tech-orange font-bold uppercase">
-                      {tag}
-                    </span>
+                    <SkillTag key={tag} label={tag} size="sm" />
                   ))}
                 </div>
               )}
@@ -137,9 +125,7 @@ const Awards = () => {
                     <h4 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Tecnologías Relacionadas</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedAward.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 rounded-full bg-tech-orange/10 text-tech-orange text-xs font-medium border border-tech-orange/20">
-                          {tag}
-                        </span>
+                        <SkillTag key={tag} label={tag} size="sm" />
                       ))}
                     </div>
                   </div>

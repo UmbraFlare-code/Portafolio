@@ -20,10 +20,10 @@ const Button = ({
   const baseStyles = "inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wider transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none rounded-xl";
   
   const variants = {
-    primary: "bg-tech-orange text-white hover:shadow-[0_0_30px_rgba(255,95,31,0.3)] hover:bg-tech-orange/90",
+    primary: "bg-tech-orange border border-tech-orange text-white hover:shadow-[0_0_30px_rgba(255,95,31,0.3)] hover:bg-tech-orange/90",
     secondary: "bg-negative/5 border border-negative/10 text-negative/60 hover:bg-negative/10 hover:text-negative",
     outline: "border border-tech-orange/50 text-tech-orange hover:bg-tech-orange/10",
-    ghost: "bg-transparent text-negative/40 hover:bg-negative/5 hover:text-negative"
+    ghost: "bg-transparent border border-transparent text-negative/40 hover:bg-negative/5 hover:text-negative"
   };
 
   const sizes = {

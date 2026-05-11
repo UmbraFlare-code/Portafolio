@@ -139,7 +139,8 @@ export const experienceAdapter = (raw) => {
 export const achievementAdapter = (raw) => {
   return {
     ...raw,
-    image: ensureAbsolutePath(raw.image || raw.img)
+    image: ensureAbsolutePath(raw.image || raw.img),
+    tags: raw.skills?.map(s => s.name) ?? []
   };
 };
 
@@ -154,5 +155,13 @@ export const serviceAdapter = (raw) => {
   return {
     ...raw,
     // ID, name, description, sort_order are standard
+  };
+};
+
+export const awardAdapter = (raw) => {
+  return {
+    ...raw,
+    image: ensureAbsolutePath(raw.image || raw.img),
+    tags: raw.skills?.map(s => s.name) ?? []
   };
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ExternalLink, Github, Folder } from 'lucide-react';
+import SkillTag from './SkillTag';
 
 const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
   const { name, slug, description, tags, url, img, status, period } = data;
@@ -11,9 +12,10 @@ const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
   };
 
   return (
-    <div 
+    <div
       onClick={handleCardClick}
       onMouseEnter={onMouseEnter}
+
       onMouseLeave={onMouseLeave}
       className={`group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 cursor-pointer ${isDimmed ? 'opacity-50 blur-[0.5px]' : ''}`}
     >
@@ -53,20 +55,20 @@ const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
           <div>
             <div className="inline-flex items-baseline font-medium leading-tight text-negative group-hover:text-tech-orange transition-colors focus-visible:text-tech-orange group/link text-base">
               <span className="inline-block group-hover:text-tech-orange transition-colors">
-                 {name}
-                 <ExternalLink size={14} className="inline-block ml-1 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                {name}
+                <ExternalLink size={14} className="inline-block ml-1 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
               </span>
             </div>
           </div>
         </h3>
-        
+
         <p className="mt-2 text-sm leading-normal text-negative/60">
           {description}
         </p>
 
         <div className="flex items-center gap-4 mt-3">
           {url && (
-             <a
+            <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
@@ -77,11 +79,11 @@ const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
               {url.includes('github.com') ? <Github size={18} /> : <ExternalLink size={18} />}
             </a>
           )}
-          
+
           <ul className="flex flex-wrap gap-2">
             {tags?.map((tag) => (
-              <li key={tag} className="flex items-center rounded-full bg-tech-orange/10 px-3 py-1 text-xs font-medium leading-5 text-tech-orange">
-                {tag}
+              <li key={tag}>
+                <SkillTag label={tag} size="sm" />
               </li>
             ))}
           </ul>

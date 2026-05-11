@@ -1,5 +1,46 @@
 import { supabase } from '../lib/supabaseClient';
-import { skillAdapter, projectAdapter, experienceAdapter, achievementAdapter, blogPostAdapter, serviceAdapter } from './adapters';
+import { skillAdapter, projectAdapter, experienceAdapter, achievementAdapter, blogPostAdapter, serviceAdapter, awardAdapter } from './adapters';
+
+import config from '../data/config.json';
+
+export const getHomeInfo = () => ({
+  name: config.profile.name,
+  title: config.profile.title,
+  description: config.profile.description
+});
+
+export const getAboutInfo = () => ({
+  description: config.profile.about
+});
+
+export const getContactInfo = () => ({
+  ...config.contact,
+  email: {
+    address: config.contact.email,
+    mailtoUrl: `mailto:${config.contact.email}?subject=Interesado%20en%20tu%20Trabajo`
+  },
+  phone: {
+    number: config.contact.phone,
+    whatsappUrl: `https://wa.me/${config.contact.phone.replace(/[^0-9]/g, '')}`
+  }
+});
+
+// Helper to check availability based on Peru time (GMT-5)
+export const isAvailableNow = () => {
+  const limaTime = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Lima" }));
+  const hour = limaTime.getHours();
+  const minutes = limaTime.getMinutes();
+  const currentDecimalHour = hour + minutes / 60;
+  
+  const daysMap = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  const dayName = daysMap[limaTime.getDay()];
+  
+  const ranges = config.contact.availability.weekly_ranges[dayName] || [];
+  
+  return ranges.some(range => 
+    currentDecimalHour >= range.start && currentDecimalHour < range.end
+  );
+};
 
 // ─── Cache Mechanism (Persistent in Session) ──────────────
 const withCache = async (key, fetcher) => {
@@ -96,7 +137,8 @@ export async function getProjectBySlug(slug) {
         featured,
         status,
         content,
-        project_categories(key, label)
+        project_categories(key, label),
+        skills(name)
       `)
       .eq('slug', slug)
       .single();
@@ -138,6 +180,8 @@ export async function getExperiences() {
         period,
         description,
         sort_order,
+        slug,
+        content,
         skills(name)
       `)
       .order('sort_order', { ascending: false });
@@ -151,12 +195,46 @@ export async function getExperiences() {
   });
 }
 
+export async function getExperienceBySlug(slugOrId) {
+  return withCache(`experience-${slugOrId}`, async () => {
+    // Determine if it's a UUID or a slug
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(slugOrId);
+
+    let query = supabase
+      .from('experiences')
+      .select(`
+        id,
+        company,
+        role,
+        period,
+        description,
+        content,
+        skills(name)
+      `);
+
+    if (isUuid) {
+      query = query.eq('id', slugOrId);
+    } else {
+      query = query.eq('slug', slugOrId);
+    }
+
+    const { data, error } = await query.single();
+
+    if (error) {
+      console.error('Error fetching experience:', error);
+      return null;
+    }
+
+    return experienceAdapter(data);
+  });
+}
+
 // ─── Achievements (Logros, Certificaciones, Premios, Cursos) ───
 export async function getAchievements() {
   return withCache('achievements', async () => {
     const { data: achievements, error } = await supabase
       .from('achievements')
-      .select('*')
+      .select('*, skills(name)')
       .order('created_at', { ascending: true });
 
     if (error) throw error;
@@ -241,7 +319,7 @@ export const getSkills = async (from = 0, to = null, tag = null) => {
 
 export const getSkillTags = async (skillNames) => {
   // Obtenemos todas las habilidades para buscar sus tags
-  const { data: allSkills } = await getSkills(0, 999); 
+  const { data: allSkills } = await getSkills(0, 999);
   const requestedTags = allSkills
     .filter(s => skillNames.includes(s.name))
     .map(s => ({ name: s.name, tag: s.tag }));
@@ -259,5 +337,18 @@ export async function getServices() {
 
     if (error) throw error;
     return data.map(serviceAdapter);
+  });
+}
+
+// ─── Awards ──────────────────────────────────────────────
+export async function getAwards() {
+  return withCache('awards', async () => {
+    const { data, error } = await supabase
+      .from('awards')
+      .select('*, skills(name)')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+    return data.map(awardAdapter);
   });
 }

@@ -15,17 +15,6 @@ const Logros = () => {
         const data = await getAchievements();
         setAchievements(data || []);
         setLoading(false);
-
-        if (data) {
-          data.forEach(async (ach) => {
-            const tags = await getEntitySkills('achievement_skills', 'achievement_id', ach.id);
-            if (tags.length > 0) {
-              setAchievements(prev => prev.map(item =>
-                item.id === ach.id ? { ...item, tags } : item
-              ));
-            }
-          });
-        }
       } catch (err) {
         console.error('Error fetching achievements:', err);
         setLoading(false);
@@ -52,7 +41,7 @@ const Logros = () => {
         <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Logros</h3>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="flex flex-col gap-12">
         {/* Columna Izquierda: Premios (Prioridad 1) y Cursos */}
         <div className="flex flex-col gap-12">
           {/* Premios */}

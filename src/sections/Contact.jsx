@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Smartphone, ChevronRight, Briefcase, ExternalLink, Loader2 } from 'lucide-react';
-import contactData from '../data/contact.json';
-import { getServices } from '../services/dataService';
+import { getServices, getContactInfo } from '../services/dataService';
 
 const Contact = () => {
-  const { email, phone } = contactData;
+  const { email, phone } = getContactInfo();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,39 +46,31 @@ const Contact = () => {
           Contacto Directo
         </h4>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="flex flex-wrap gap-4">
           <a
             href={email.mailtoUrl}
-            className="flex items-center justify-between p-6 rounded-2xl bg-negative/5 border border-negative/10 hover:border-tech-orange/50 transition-all group lg:hover:bg-negative/10"
+            className="flex items-center gap-4 px-6 py-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/40 transition-all group lg:hover:bg-negative/10"
           >
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-tech-orange/10 text-tech-orange">
-                <Mail size={24} />
-              </div>
-              <div>
-                <span className="block text-xs uppercase tracking-wider text-negative/40">Email</span>
-                <span className="text-sm font-bold uppercase tracking-widest">Enviar un Correo</span>
-              </div>
+            <div className="p-2.5 rounded-lg bg-tech-orange/10 text-tech-orange group-hover:bg-tech-orange group-hover:text-white transition-all">
+              <Mail size={18} />
             </div>
-            <ChevronRight className="text-negative/20 group-hover:text-tech-orange transition-colors" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-negative/60 group-hover:text-negative transition-colors">
+              Enviar Correo
+            </span>
           </a>
 
           <a
             href={phone.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between p-6 rounded-2xl bg-negative/5 border border-negative/10 hover:border-tech-orange/50 transition-all group lg:hover:bg-negative/10"
+            className="flex items-center gap-4 px-6 py-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/40 transition-all group lg:hover:bg-negative/10"
           >
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-tech-orange/10 text-tech-orange">
-                <Smartphone size={24} />
-              </div>
-              <div>
-                <span className="block text-xs uppercase tracking-wider text-negative/40">WhatsApp</span>
-                <span className="text-sm font-bold uppercase tracking-widest">Enviar Mensaje</span>
-              </div>
+            <div className="p-2.5 rounded-lg bg-tech-orange/10 text-tech-orange group-hover:bg-tech-orange group-hover:text-white transition-all">
+              <Smartphone size={18} />
             </div>
-            <ChevronRight className="text-negative/20 group-hover:text-tech-orange transition-colors" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-negative/60 group-hover:text-negative transition-colors">
+              WhatsApp
+            </span>
           </a>
         </div>
       </div>

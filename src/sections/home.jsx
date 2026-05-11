@@ -1,7 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, MessageSquare, FileText } from 'lucide-react';
-import homeData from '../data/home.json';
-import contactData from '../data/contact.json';
+import { getHomeInfo, getContactInfo } from '../services/dataService';
 
 const socialIcons = {
   FaLinkedin: Linkedin,
@@ -11,8 +10,8 @@ const socialIcons = {
 };
 
 function Home() {
-  const { name, description } = homeData;
-  const { socialLinks } = contactData;
+  const { name, description } = getHomeInfo();
+  const { socialLinks } = getContactInfo();
 
   return (
     <div id="home" className="flex flex-col gap-4 scroll-mt-24">
@@ -39,14 +38,17 @@ function Home() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group transition-all duration-300 hover:-translate-y-1"
+              className="group relative flex items-center gap-2 transition-all duration-300 hover:-translate-y-1"
               aria-label={link.name}
               title={link.name}
             >
               <Icon 
-                size={24} 
+                size={22} 
                 className="text-negative/40 group-hover:text-tech-orange group-hover:drop-shadow-[0_0_8px_rgba(255,95,31,0.5)] transition-colors" 
               />
+              <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-negative/5 border border-negative/10 text-[10px] font-bold uppercase tracking-widest text-tech-orange opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap translate-y-2 group-hover:translate-y-0">
+                {link.name}
+              </span>
             </a>
           );
         })}

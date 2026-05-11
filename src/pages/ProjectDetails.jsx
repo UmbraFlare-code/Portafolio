@@ -23,10 +23,7 @@ const ProjectDetails = () => {
           return;
         }
         setProject(data);
-
-        // Load skills progressively
-        const skillTags = await getEntitySkills('project_skills', 'project_id', data.id);
-        if (skillTags.length > 0) setTags(skillTags);
+        if (data.tags) setTags(data.tags);
       } catch (err) {
         console.error('Error fetching project details:', err);
         navigate('/');

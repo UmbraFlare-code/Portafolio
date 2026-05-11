@@ -9,20 +9,22 @@ import BlogSection from '../sections/BlogSection';
 import Footer from '../sections/footer';
 import SectionProgress from '../components/SectionProgress';
 import TimeDisplay from '../components/TimeDisplay';
+import { getHomeInfo } from '../services/dataService';
 
 const MainLayout = () => {
+  const { name } = getHomeInfo();
   return (
     <div className="min-h-screen bg-dark-bg text-negative selection:bg-tech-orange selection:text-white font-mono">
       {/* Mobile Top Bar */}
       <div className="lg:hidden sticky top-0 z-50 backdrop-blur-xl bg-dark-bg/80 border-b border-negative/5 px-6 py-4">
-        <span className="font-bold text-xs uppercase tracking-widest text-tech-orange">Francis Maxuel</span>
+        <span className="font-bold text-xs uppercase tracking-widest text-tech-orange">{name}</span>
       </div>
 
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="lg:flex lg:justify-between lg:gap-4">
 
           {/* Sticky Sidebar */}
-          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-2/5 lg:flex-col lg:justify-between lg:py-24">
             <div className="flex flex-col gap-4">
               <Home />
               <div className="mt-8">

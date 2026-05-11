@@ -18,15 +18,14 @@ import {
   Brain,
   Clock
 } from 'lucide-react';
-import aboutData from '../data/about.json';
-import { getSkills, getSkillTags, getExperiences, getProjects, getAchievements } from '../services/dataService';
+import { getSkills, getSkillTags, getExperiences, getProjects, getAchievements, getAboutInfo } from '../services/dataService';
 import { CATEGORY_LABELS } from '../services/adapters';
 import Button from '../components/ui/Button';
 import Tag from '../components/ui/Tag';
 import { Trophy, Award, Briefcase, Rocket } from 'lucide-react';
 
 const About = () => {
-  const { description, stats } = aboutData;
+  const { description } = getAboutInfo();
   const [hardSkills, setHardSkills] = useState([]);
   const [softSkills, setSoftSkills] = useState([]);
   const [loadingSkills, setLoadingSkills] = useState(true);
@@ -48,7 +47,7 @@ const About = () => {
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth(); // 0-11
-    
+
     const yearRegex = /\b(20\d{2})\b/g;
     const monthMap = {
       'ene': 0, 'jan': 0, 'feb': 1, 'mar': 2, 'abr': 3, 'apr': 3, 'may': 4,
@@ -62,12 +61,12 @@ const About = () => {
     experiences.forEach(exp => {
       const period = exp.period?.toLowerCase() || '';
       const yearMatches = period.match(yearRegex);
-      
+
       if (yearMatches) {
         yearMatches.forEach(yStr => {
           const year = parseInt(yStr);
           let month = 0; // Default to start of year
-          
+
           // Try to find a month name before the year
           const words = period.split(/[\s\/-]+/);
           const yearIdx = words.indexOf(yStr);
@@ -75,7 +74,7 @@ const About = () => {
             const prevWord = words[yearIdx - 1];
             if (monthMap[prevWord]) month = monthMap[prevWord];
           }
-          
+
           const date = new Date(year, month);
           if (date < earliestDate) earliestDate = date;
         });
@@ -84,7 +83,7 @@ const About = () => {
 
     const diffInMonths = (currentYear - earliestDate.getFullYear()) * 12 + (currentMonth - earliestDate.getMonth());
     const totalYears = diffInMonths / 12;
-    
+
     // Return with 1 decimal if it's not a whole number, otherwise just the integer
     return totalYears > 0 ? parseFloat(totalYears.toFixed(1)) : 1;
   };
@@ -133,8 +132,10 @@ const About = () => {
           const unique = Array.from(new Map(combined.map(s => [s.name, s])).values());
           return unique;
         });
+        // Only reset/update soft skills if we are in 'all' view or if they haven't been loaded yet
         setSoftSkills(prev => {
-          const base = reset ? [] : prev;
+          if (filterTag !== 'all' && prev.length > 0) return prev;
+          const base = (reset && filterTag === 'all') ? [] : prev;
           const combined = [...base, ...sSkills];
           const unique = Array.from(new Map(combined.map(s => [s.name, s])).values());
           return unique;
