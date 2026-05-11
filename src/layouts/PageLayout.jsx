@@ -7,6 +7,14 @@ const PageLayout = ({ children, title, wide = false }) => {
   const { name } = getHomeInfo();
   const maxWidthClass = wide ? "max-w-screen-2xl px-6 md:px-12 lg:px-24" : "max-w-screen-lg px-6 md:px-12";
   
+  React.useEffect(() => {
+    if (title && title !== "Artículo" && title !== "Detalle del Proyecto" && title !== "Detalle de Experiencia") {
+      document.title = `${title} | ${name}`;
+    } else {
+      document.title = `${name} | Software Engineer`;
+    }
+  }, [title, name]);
+
   return (
     <div className="min-h-screen bg-dark-bg text-negative selection:bg-tech-orange selection:text-white font-mono">
       {/* Top Nav */}

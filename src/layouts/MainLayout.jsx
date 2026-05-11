@@ -13,6 +13,11 @@ import { getHomeInfo } from '../services/dataService';
 
 const MainLayout = () => {
   const { name } = getHomeInfo();
+
+  React.useEffect(() => {
+    document.title = `${name} | Software Engineer`;
+  }, [name]);
+
   return (
     <div className="min-h-screen bg-dark-bg text-negative selection:bg-tech-orange selection:text-white font-mono">
       {/* Mobile Top Bar */}

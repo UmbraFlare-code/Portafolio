@@ -50,7 +50,7 @@ const ProjectDetails = () => {
   const readingTime = content ? Math.ceil(content.split(/\s+/).length / 200) : 0;
 
   return (
-    <PageLayout title="Detalle del Proyecto">
+    <PageLayout title={project?.name || "Detalle del Proyecto"}>
       <div className="flex flex-col gap-12 max-w-4xl mx-auto">
         <Link
           to="/"

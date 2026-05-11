@@ -138,7 +138,7 @@ const BlogPost = () => {
   };
 
   return (
-    <PageLayout title="Artículo" wide={true}>
+    <PageLayout title={post?.title || "Artículo"} wide={true}>
       {/* Progress Bar (Global Top) */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60] bg-negative/5">
         <div

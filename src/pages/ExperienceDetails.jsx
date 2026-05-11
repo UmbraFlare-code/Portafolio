@@ -47,7 +47,7 @@ const ExperienceDetails = () => {
   const content = experience.content || '';
 
   return (
-    <PageLayout title="Detalle de Experiencia">
+    <PageLayout title={experience?.role || "Detalle de Experiencia"}>
       <div className="flex flex-col gap-12 max-w-4xl mx-auto">
         <Link
           to="/"
