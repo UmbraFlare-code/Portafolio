@@ -31,7 +31,10 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          if [ -z "$VITE_SUPABASE_URL" ]; then echo "ERROR: VITE_SUPABASE_URL is missing in GitHub Secrets"; exit 1; fi
+          if [ -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then echo "ERROR: VITE_SUPABASE_PUBLISHABLE_KEY is missing in GitHub Secrets"; exit 1; fi
+          npm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
