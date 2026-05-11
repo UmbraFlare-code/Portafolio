@@ -141,16 +141,16 @@ const BlogPost = () => {
     <PageLayout title="Artículo" wide={true}>
       {/* Progress Bar (Global Top) */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60] bg-negative/5">
-        <div 
+        <div
           className="h-full bg-tech-orange transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       <div className="lg:flex lg:justify-between lg:gap-4">
-        
+
         {/* Desktop TOC (Sidebar - matching MainLayout 2/5) */}
-        <aside className="hidden lg:sticky lg:top-32 lg:flex lg:max-h-[calc(100vh-8rem)] lg:w-2/5 lg:flex-col self-start overflow-y-auto">
+        <aside className="scrollbar-none hidden lg:sticky lg:top-32 lg:flex lg:max-h-[calc(100vh-8rem)] lg:w-2/5 lg:flex-col self-start overflow-y-auto">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-tech-orange">Índice del Artículo</span>
@@ -159,11 +159,10 @@ const BlogPost = () => {
                   <button
                     key={h.id}
                     onClick={() => scrollToHeading(h.id)}
-                    className={`text-left text-sm transition-all duration-300 hover:text-tech-orange hover:translate-x-1 ${
-                      activeId === h.id 
-                        ? 'text-tech-orange font-bold translate-x-1' 
+                    className={`text-left text-sm transition-all duration-300 hover:text-tech-orange hover:translate-x-1 ${activeId === h.id
+                        ? 'text-tech-orange font-bold translate-x-1'
                         : 'text-negative/30'
-                    } ${h.level === 3 ? 'ml-4 text-xs' : ''}`}
+                      } ${h.level === 3 ? 'ml-4 text-xs' : ''}`}
                   >
                     {h.text}
                   </button>
@@ -227,7 +226,7 @@ const BlogPost = () => {
           </header>
 
           <article className="prose-portfolio">
-            <ReactMarkdown 
+            <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
                 h1: ({ children }) => <HeadingComponent level={1}>{children}</HeadingComponent>,
@@ -273,11 +272,10 @@ const BlogPost = () => {
                   <button
                     key={h.id}
                     onClick={() => scrollToHeading(h.id)}
-                    className={`text-left text-sm transition-all duration-300 ${
-                      activeId === h.id 
-                        ? 'text-tech-orange font-bold' 
+                    className={`text-left text-sm transition-all duration-300 ${activeId === h.id
+                        ? 'text-tech-orange font-bold'
                         : 'text-negative/60'
-                    } ${h.level === 3 ? 'ml-4' : ''}`}
+                      } ${h.level === 3 ? 'ml-4' : ''}`}
                   >
                     {h.text}
                   </button>

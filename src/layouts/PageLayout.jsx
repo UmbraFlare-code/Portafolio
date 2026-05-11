@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Terminal } from 'lucide-react';
+import { getHomeInfo } from '../services/dataService';
 
 const PageLayout = ({ children, title, wide = false }) => {
+  const { name } = getHomeInfo();
   const maxWidthClass = wide ? "max-w-screen-2xl px-6 md:px-12 lg:px-24" : "max-w-screen-lg px-6 md:px-12";
   
   return (
@@ -17,7 +19,7 @@ const PageLayout = ({ children, title, wide = false }) => {
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             <div className="flex items-center gap-2">
               <Terminal size={20} className="text-tech-orange" />
-              <span className="font-bold text-sm uppercase tracking-wider">Francis Maxuel</span>
+              <span className="font-bold text-sm uppercase tracking-wider">{name}</span>
             </div>
           </Link>
           <div className="flex items-center gap-4">
@@ -38,7 +40,7 @@ const PageLayout = ({ children, title, wide = false }) => {
       {/* Simple Footer */}
       <footer className="border-t border-negative/5 py-8">
         <div className={`${maxWidthClass} mx-auto flex items-center justify-between text-negative/30 text-xs`}>
-          <span>© {new Date().getFullYear()} Francis Maxuel</span>
+          <span>© {new Date().getFullYear()} {name}</span>
           <Link to="/" className="hover:text-tech-orange transition-colors">
             Volver al inicio
           </Link>

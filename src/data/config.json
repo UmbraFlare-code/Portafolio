@@ -1,6 +1,6 @@
 {
   "profile": {
-    "name": "Francis Maxuel",
+    "name": "Francis Maxuel U.O",
     "title": "Ingeniero de Sistemas e Informática",
     "description": "Desarrollo experiencias digitales precisas, escalables y centradas en el usuario.",
     "about": "Apasionado por crear soluciones innovadoras que integran hardware y software. Me especializo en tecnologías como React, Python, C++ y Arduino. Me motiva resolver problemas reales mediante la programación y el diseño inteligente."
@@ -17,32 +17,74 @@
       },
       "weekly_ranges": {
         "domingo": [
-          { "start": 8, "end": 8.5 },
-          { "start": 9.5, "end": 20 }
+          {
+            "start": 8,
+            "end": 8.5
+          },
+          {
+            "start": 9.5,
+            "end": 20
+          }
         ],
         "lunes": [
-          { "start": 8, "end": 14 }
+          {
+            "start": 8,
+            "end": 14
+          }
         ],
         "martes": [
-          { "start": 8, "end": 14 },
-          { "start": 17.1, "end": 19 }
+          {
+            "start": 8,
+            "end": 14
+          },
+          {
+            "start": 17.1,
+            "end": 19
+          }
         ],
         "miércoles": [
-          { "start": 8, "end": 14 },
-          { "start": 18.8, "end": 20 }
+          {
+            "start": 8,
+            "end": 14
+          },
+          {
+            "start": 18.8,
+            "end": 20
+          }
         ],
         "jueves": [
-          { "start": 8, "end": 14 },
-          { "start": 15.5, "end": 16 },
-          { "start": 18, "end": 20 }
+          {
+            "start": 8,
+            "end": 14
+          },
+          {
+            "start": 15.5,
+            "end": 16
+          },
+          {
+            "start": 18,
+            "end": 20
+          }
         ],
         "viernes": [
-          { "start": 8, "end": 14 },
-          { "start": 19, "end": 20 }
+          {
+            "start": 8,
+            "end": 14
+          },
+          {
+            "start": 19,
+            "end": 20
+          }
         ],
         "sábado": [
-          { "start": 8, "end": 14 },
-          { "start": 18.8, "end": 20 }
+          {
+            "start": 8,
+            "end": 14
+          },
+          {
+            "start": 18.8,
+            "end": 20
+          }
         ]
       },
       "status": "Disponible para proyectos freelance y oportunidades laborales"

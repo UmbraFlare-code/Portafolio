@@ -11,11 +11,20 @@ const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
     navigate(`/projects/${slug}`);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleCardClick();
+    }
+  };
+
   return (
     <div
+      role="button"
+      tabIndex="0"
       onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
       onMouseEnter={onMouseEnter}
-
       onMouseLeave={onMouseLeave}
       className={`group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 cursor-pointer ${isDimmed ? 'opacity-50 blur-[0.5px]' : ''}`}
     >

@@ -10,7 +10,7 @@ const socialIcons = {
 };
 
 function Home() {
-  const { name, description } = getHomeInfo();
+  const { name, title, description } = getHomeInfo();
   const { socialLinks } = getContactInfo();
 
   return (
@@ -20,7 +20,7 @@ function Home() {
           {name}
         </h1>
         <h2 className="text-lg md:text-xl font-medium text-tech-orange uppercase tracking-widest">
-          Software Engineer
+          {title}
         </h2>
       </div>
       
