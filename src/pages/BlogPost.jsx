@@ -32,18 +32,39 @@ const BlogPost = () => {
   // Extract headings for TOC
   const headings = useMemo(() => {
     if (!post?.content) return [];
-    const lines = post.content.split('\n');
+    
+    // Normalizar finales de línea y dividir
+    const content = post.content.replace(/\r\n/g, '\n');
+    const lines = content.split('\n');
     const extracted = [];
+    let inCodeBlock = false;
+
     lines.forEach(line => {
-      const match = line.match(/^(#{1,3})\s+(.+)$/);
-      if (match) {
-        const level = match[1].length;
-        const text = match[2].trim();
-        extracted.push({
-          id: slugify(text),
-          text,
-          level
-        });
+      // Detectar inicio/fin de bloques de código
+      if (line.trim().startsWith('```')) {
+        inCodeBlock = !inCodeBlock;
+        return;
+      }
+
+      // Solo procesar si no estamos dentro de un bloque de código
+      if (!inCodeBlock) {
+        // Coincide con encabezados ATX (de 1 a 6 #, con hasta 3 espacios iniciales permitidos por MD)
+        const match = line.match(/^\s{0,3}(#{1,6})\s+(.+)$/);
+        if (match) {
+          const level = match[1].length;
+          const rawText = match[2].trim();
+          
+          // Limpiar el texto de marcas de markdown comunes para el índice (negritas, cursivas, backticks)
+          const cleanText = rawText.replace(/[*_`]/g, '').trim();
+          
+          if (cleanText) {
+            extracted.push({
+              id: slugify(cleanText),
+              text: cleanText,
+              level
+            });
+          }
+        }
       }
     });
     return extracted;
@@ -123,10 +144,34 @@ const BlogPost = () => {
   const readingTime = Math.ceil(content.split(/\s+/).length / 200);
 
   const HeadingComponent = ({ level, children }) => {
-    const text = React.Children.toArray(children).join('');
+    const getPlainText = (nodes) => {
+      return React.Children.toArray(nodes)
+        .map(child => {
+          if (typeof child === 'string') return child;
+          if (typeof child === 'object' && child.props && child.props.children) {
+            return getPlainText(child.props.children);
+          }
+          return '';
+        })
+        .join('');
+    };
+
+    const text = getPlainText(children);
     const id = slugify(text);
     const Tag = `h${level}`;
-    return <Tag id={id} className="scroll-mt-32">{children}</Tag>;
+    
+    return (
+      <Tag id={id} className="scroll-mt-32 group relative">
+        {children}
+        <a 
+          href={`#${id}`} 
+          className="absolute -left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-tech-orange text-lg hidden md:block"
+          title={`Enlace a ${text}`}
+        >
+          #
+        </a>
+      </Tag>
+    );
   };
 
   const scrollToHeading = (id) => {
@@ -157,12 +202,17 @@ const BlogPost = () => {
               <nav className="flex flex-col gap-4 border-l border-negative/5 pl-4">
                 {headings.map((h) => (
                   <button
-                    key={h.id}
+                    key={`${h.id}-${h.level}`}
                     onClick={() => scrollToHeading(h.id)}
-                    className={`text-left text-sm transition-all duration-300 hover:text-tech-orange hover:translate-x-1 ${activeId === h.id
+                    className={`text-left text-sm transition-all duration-300 hover:text-tech-orange hover:translate-x-1 ${
+                      activeId === h.id
                         ? 'text-tech-orange font-bold translate-x-1'
                         : 'text-negative/30'
-                      } ${h.level === 3 ? 'ml-4 text-xs' : ''}`}
+                    }`}
+                    style={{ 
+                      paddingLeft: h.level > 1 ? `${(h.level - 2) * 1}rem` : '0',
+                      fontSize: h.level > 2 ? '0.8rem' : '0.875rem'
+                    }}
                   >
                     {h.text}
                   </button>
@@ -232,6 +282,9 @@ const BlogPost = () => {
                 h1: ({ children }) => <HeadingComponent level={1}>{children}</HeadingComponent>,
                 h2: ({ children }) => <HeadingComponent level={2}>{children}</HeadingComponent>,
                 h3: ({ children }) => <HeadingComponent level={3}>{children}</HeadingComponent>,
+                h4: ({ children }) => <HeadingComponent level={4}>{children}</HeadingComponent>,
+                h5: ({ children }) => <HeadingComponent level={5}>{children}</HeadingComponent>,
+                h6: ({ children }) => <HeadingComponent level={6}>{children}</HeadingComponent>,
               }}
             >
               {content}
@@ -270,12 +323,16 @@ const BlogPost = () => {
               <nav className="flex flex-col gap-4">
                 {headings.map((h) => (
                   <button
-                    key={h.id}
+                    key={`${h.id}-${h.level}-mobile`}
                     onClick={() => scrollToHeading(h.id)}
-                    className={`text-left text-sm transition-all duration-300 ${activeId === h.id
+                    className={`text-left text-sm transition-all duration-300 ${
+                      activeId === h.id
                         ? 'text-tech-orange font-bold'
                         : 'text-negative/60'
-                      } ${h.level === 3 ? 'ml-4' : ''}`}
+                    }`}
+                    style={{ 
+                      paddingLeft: h.level > 1 ? `${(h.level - 2) * 1}rem` : '0'
+                    }}
                   >
                     {h.text}
                   </button>
