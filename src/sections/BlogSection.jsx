@@ -26,14 +26,17 @@ const BlogSection = () => {
 
   return (
     <section id="blog" className="flex flex-col gap-8 scroll-mt-24">
-      <div className="flex items-center justify-between">
-        <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Artículos Recientes</h3>
-        <Link 
-          to="/blog" 
-          className="text-xs font-bold uppercase tracking-widest text-negative/60 hover:text-tech-orange transition-colors flex items-center gap-2 group"
-        >
-          Ver todo el blog <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Artículos Recientes</h3>
+          <Link 
+            to="/blog" 
+            className="text-sm font-bold uppercase tracking-widest text-negative/60 hover:text-tech-orange transition-colors flex items-center gap-2 group"
+          >
+            Ver todo <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+        <h2 className="text-[22px] font-bold text-negative">Blog y Pensamientos</h2>
       </div>
 
       <div className="grid grid-cols-1 gap-4">
@@ -41,18 +44,18 @@ const BlogSection = () => {
           <Link
             key={post.id}
             to={`/blog/${post.slug}`}
-            className="group relative flex flex-col gap-2 p-4 rounded-xl transition-all lg:hover:bg-negative/5"
+            className="group relative flex flex-col gap-2 p-5 rounded-xl transition-all lg:hover:bg-negative/5"
           >
-            <div className="flex items-center gap-2 text-[10px] text-negative/40">
-              <Calendar size={10} />
+            <div className="flex items-center gap-2 text-sm text-negative/40">
+              <Calendar size={14} />
               {new Date(post.published_at).toLocaleDateString('es-PE', {
                 year: 'numeric', month: 'short', day: 'numeric'
               })}
             </div>
-            <h4 className="text-base font-bold text-negative group-hover:text-tech-orange transition-colors">
+            <h4 className="text-[18px] font-bold text-negative group-hover:text-tech-orange transition-colors">
               {post.title}
             </h4>
-            <p className="text-sm text-negative/60 line-clamp-2">
+            <p className="text-[16px] text-negative/60 line-clamp-2">
               {post.excerpt}
             </p>
           </Link>

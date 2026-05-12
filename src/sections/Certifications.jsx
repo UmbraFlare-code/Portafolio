@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Award, Trophy, Loader2, X, Calendar, BookOpen } from 'lucide-react';
+import { Award, Trophy, Loader2, X, Calendar, BookOpen, ArrowRight } from 'lucide-react';
 import { getAchievements, getEntitySkills } from '../services/dataService';
 import SkillTag from '../components/ui/SkillTag';
 import Button from '../components/ui/Button';
@@ -36,9 +36,10 @@ const Logros = () => {
   const cursos = achievements.filter(a => a.kind === 'cursos' || a.kind === 'course');
 
   return (
-    <section id="logros" className="flex flex-col gap-12 scroll-mt-24">
+    <section id="awards" className="flex flex-col gap-12 scroll-mt-24">
       <div className="flex flex-col gap-4">
-        <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Logros</h3>
+        <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Logros y Certificaciones</h3>
+        <h2 className="text-[22px] font-bold text-negative">Reconocimientos y Éxitos</h2>
       </div>
 
       <div className="flex flex-col gap-12">
@@ -55,13 +56,19 @@ const Logros = () => {
                   <button
                     key={award.id}
                     onClick={() => setSelectedItem(award)}
-                    className="p-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex items-center gap-4 text-left group w-full"
+                    className="p-5 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex items-center gap-4 text-left group w-full"
                   >
                     <div className="flex flex-col gap-1 flex-grow">
-                      <h4 className="text-sm font-bold text-negative group-hover:text-tech-orange transition-colors">{award.title}</h4>
-                      {award.date && <p className="text-xs text-negative/60">{award.date}</p>}
+                      <h4 className="text-[18px] font-bold text-negative group-hover:text-tech-orange transition-colors">{award.title}</h4>
+                      {award.date && <p className="text-[16px] text-negative/60">{award.date}</p>}
+                      
+                      <div className="mt-2 flex items-center gap-2 text-tech-orange font-bold uppercase tracking-widest group-hover:text-tech-orange/80 transition-colors text-[12px]">
+                        <span>Ver descripción completa</span>
+                        <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                      </div>
+
                       {award.tags && award.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-1">
+                        <div className="flex flex-wrap gap-2 mt-3">
                           {award.tags.map(tag => (
                             <SkillTag key={tag} label={tag} size="sm" />
                           ))}
@@ -85,16 +92,22 @@ const Logros = () => {
                   <button
                     key={curso.id}
                     onClick={() => setSelectedItem(curso)}
-                    className="p-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex items-center gap-4 text-left group w-full"
+                    className="p-5 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex items-center gap-4 text-left group w-full"
                   >
                     <div className="p-3 rounded-lg bg-tech-orange/10 text-tech-orange shrink-0">
                       <BookOpen size={20} />
                     </div>
                     <div className="flex flex-col gap-1 flex-grow">
-                      <h4 className="text-sm font-bold text-negative group-hover:text-tech-orange transition-colors">{curso.title}</h4>
-                      {curso.date && <p className="text-xs text-negative/60">{curso.date}</p>}
+                      <h4 className="text-[18px] font-bold text-negative group-hover:text-tech-orange transition-colors">{curso.title}</h4>
+                      {curso.date && <p className="text-[16px] text-negative/60">{curso.date}</p>}
+                      
+                      <div className="mt-2 flex items-center gap-2 text-tech-orange font-bold uppercase tracking-widest group-hover:text-tech-orange/80 transition-colors text-[12px]">
+                        <span>Ver descripción completa</span>
+                        <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                      </div>
+
                       {curso.tags && curso.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-1">
+                        <div className="flex flex-wrap gap-2 mt-3">
                           {curso.tags.map(tag => (
                             <SkillTag key={tag} label={tag} size="sm" />
                           ))}
@@ -120,17 +133,23 @@ const Logros = () => {
                   <button
                     key={cert.id}
                     onClick={() => setSelectedItem(cert)}
-                    className="p-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex flex-col gap-3 text-left group"
+                    className="p-5 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex flex-col gap-3 text-left group"
                   >
                     <div className="flex items-start justify-between w-full">
                       <div className="flex flex-col gap-1">
-                        <h4 className="text-sm font-bold text-negative group-hover:text-tech-orange transition-colors">{cert.title}</h4>
-                        {cert.date && <p className="text-xs text-negative/60">{cert.date}</p>}
+                        <h4 className="text-[18px] font-bold text-negative group-hover:text-tech-orange transition-colors">{cert.title}</h4>
+                        {cert.date && <p className="text-[16px] text-negative/60">{cert.date}</p>}
                       </div>
-                      <Award size={18} className="text-tech-orange shrink-0" />
+                      <Award size={20} className="text-tech-orange shrink-0" />
                     </div>
+
+                    <div className="mt-2 flex items-center gap-2 text-tech-orange font-bold uppercase tracking-widest group-hover:text-tech-orange/80 transition-colors text-[12px]">
+                      <span>Ver detalles</span>
+                      <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                    </div>
+
                     {cert.tags && cert.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-auto">
+                      <div className="flex flex-wrap gap-2 mt-auto pt-2">
                         {cert.tags.map(tag => (
                           <SkillTag key={tag} label={tag} size="sm" />
                         ))}

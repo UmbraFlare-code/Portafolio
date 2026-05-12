@@ -9,7 +9,7 @@ const SectionProgress = () => {
     { id: 'about', label: "Sobre mí" },
     { id: 'experience', label: "Experiencia" },
     { id: 'proyects', label: "Proyectos" },
-    { id: 'logros', label: "Logros" },
+    { id: 'awards', label: "Logros" },
     { id: 'blog', label: "Artículos" },
     { id: 'contact', label: "Contacto" },
   ];
@@ -94,8 +94,8 @@ const SectionProgress = () => {
           >
             <span
               className={`mr-4 h-px transition-all duration-500 group-hover:w-16 group-hover:bg-tech-orange ${isActive
-                  ? 'w-16 bg-tech-orange shadow-[0_0_8px_rgba(255,95,31,0.4)]'
-                  : 'w-8 bg-negative/20'
+                ? 'w-16 bg-tech-orange shadow-[0_0_8px_rgba(255,95,31,0.4)]'
+                : 'w-8 bg-negative/20'
                 }`}
             />
             <span

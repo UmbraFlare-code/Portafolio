@@ -200,8 +200,11 @@ const About = () => {
 
       {/* About Section */}
       <div className="flex flex-col gap-8">
-        <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Sobre mí</h3>
-        <div className="flex flex-col gap-6 text-negative/70 leading-relaxed text-lg">
+        <div className="flex flex-col gap-4">
+          <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Sobre mí</h3>
+          <h2 className="text-[22px] font-bold text-negative">Trayectoria y Enfoque</h2>
+        </div>
+        <div className="flex flex-col gap-6 text-negative/70 leading-relaxed text-[18px]">
           <p>{descText}</p>
         </div>
 
@@ -296,38 +299,45 @@ const About = () => {
         </div>
 
         {/* Improved Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          <div className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08]">
-            <div className="p-2 rounded-lg bg-tech-orange/10 w-fit mb-3 group-hover:scale-110 transition-transform">
-              <Briefcase size={20} className="text-tech-orange" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          <a href="#experience" className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08] cursor-pointer">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-2 rounded-lg bg-tech-orange/10 w-fit group-hover:scale-110 transition-transform">
+                <Briefcase size={20} className="text-tech-orange" />
+              </div>
+              <span className="text-3xl font-extrabold text-tech-orange tabular-nums">{dynamicStats.years}+</span>
             </div>
-            <span className="block text-3xl font-extrabold text-tech-orange tabular-nums">{dynamicStats.years}+</span>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-negative/40">Años de formación</span>
-          </div>
+            <span className="block text-[14px] uppercase tracking-widest font-bold text-negative/60">Años de formación</span>
+            <span className="text-[12px] text-tech-orange font-semibold mt-2 flex items-center gap-1 group-hover:text-tech-orange/80 transition-colors">
+              Ver experiencia <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </a>
 
-          <div className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08]">
-            <div className="p-2 rounded-lg bg-tech-orange/10 w-fit mb-3 group-hover:scale-110 transition-transform">
-              <Rocket size={20} className="text-tech-orange" />
+          <a href="#proyects" className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08] cursor-pointer">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-2 rounded-lg bg-tech-orange/10 w-fit group-hover:scale-110 transition-transform">
+                <Rocket size={20} className="text-tech-orange" />
+              </div>
+              <span className="text-3xl font-extrabold text-tech-orange tabular-nums">{dynamicStats.projects}</span>
             </div>
-            <span className="block text-3xl font-extrabold text-tech-orange tabular-nums">{dynamicStats.projects}</span>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-negative/40">Proyectos desarrollados</span>
-          </div>
+            <span className="block text-[14px] uppercase tracking-widest font-bold text-negative/60">Proyectos desarrollados</span>
+            <span className="text-[12px] text-tech-orange font-semibold mt-2 flex items-center gap-1 group-hover:text-tech-orange/80 transition-colors">
+              Ver proyectos <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </a>
 
-          <div className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08]">
-            <div className="p-2 rounded-lg bg-tech-orange/10 w-fit mb-3 group-hover:scale-110 transition-transform">
-              <Award size={20} className="text-tech-orange" />
+          <a href="#awards" className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08] cursor-pointer">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-2 rounded-lg bg-tech-orange/10 w-fit group-hover:scale-110 transition-transform">
+                <Award size={20} className="text-tech-orange" />
+              </div>
+              <span className="text-3xl font-extrabold text-tech-orange tabular-nums">{dynamicStats.certs}</span>
             </div>
-            <span className="block text-3xl font-extrabold text-tech-orange tabular-nums">{dynamicStats.certs}</span>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-negative/40">Certificaciones</span>
-          </div>
-
-          <div className="group p-5 rounded-2xl bg-tech-orange/5 border border-tech-orange/10 hover:border-tech-orange/30 transition-all hover:bg-tech-orange/[0.08]">
-            <div className="p-2 rounded-lg bg-tech-orange/10 w-fit mb-3 group-hover:scale-110 transition-transform">
-              <Trophy size={20} className="text-tech-orange" />
-            </div>
-            <span className="block text-3xl font-extrabold text-tech-orange tabular-nums">2</span>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-negative/40">Proyectos para Clientes</span>
-          </div>
+            <span className="block text-[14px] uppercase tracking-widest font-bold text-negative/60">Certificaciones</span>
+            <span className="text-[12px] text-tech-orange font-semibold mt-2 flex items-center gap-1 group-hover:text-tech-orange/80 transition-colors">
+              Ver logros <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </a>
         </div>
       </div>
 

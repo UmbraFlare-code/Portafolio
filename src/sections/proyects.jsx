@@ -65,9 +65,9 @@ function Proyects() {
   return (
     <section id="proyects" className="flex flex-col gap-12 scroll-mt-24">
       <div className="flex flex-col gap-4">
-        <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Proyectos</h3>
-        <h2 className="text-4xl font-bold text-negative">Proyectos</h2>
-        <p className="text-negative/60 text-lg max-w-xl">Una selección de mis trabajos más recientes y destacados.</p>
+        <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Proyectos</h3>
+        <h2 className="text-[22px] font-bold text-negative">Galería de Proyectos</h2>
+        <p className="text-negative/60 text-[18px] max-w-xl">Una selección de mis trabajos más recientes y destacados.</p>
       </div>
 
       {/* Filter Tabs */}

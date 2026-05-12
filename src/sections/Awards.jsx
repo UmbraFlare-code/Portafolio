@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Loader2, X, FileText, Calendar } from 'lucide-react';
+import { Loader2, X, FileText, Calendar, ArrowRight } from 'lucide-react';
 import SkillTag from '../components/ui/SkillTag';
 import { getAwards } from '../services/dataService';
 
@@ -32,19 +32,29 @@ const Awards = () => {
 
   return (
     <section id="awards" className="flex flex-col gap-8 scroll-mt-24">
-      <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Premios y Reconocimientos</h3>
+      <div className="flex flex-col gap-4">
+        <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Logros y Certificaciones</h3>
+        <h2 className="text-[22px] font-bold text-negative">Reconocimientos y Éxitos</h2>
+      </div>
+
       <div className="grid grid-cols-1 gap-4">
         {awards.map((award) => (
           <button
             key={award.id}
             onClick={() => setSelectedAward(award)}
-            className="p-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex items-center gap-4 text-left group w-full"
+            className="p-5 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/30 transition-all flex items-center gap-4 text-left group w-full"
           >
             <div className="flex flex-col gap-1 flex-grow">
-              <h4 className="text-sm font-bold text-negative group-hover:text-tech-orange transition-colors">{award.title}</h4>
-              <p className="text-xs text-negative/60">{award.organization} · {award.date || award.year || new Date(award.created_at).getFullYear()}</p>
+              <h4 className="text-[18px] font-bold text-negative group-hover:text-tech-orange transition-colors">{award.title}</h4>
+              <p className="text-[16px] text-negative/60">{award.organization} · {award.date || award.year || new Date(award.created_at).getFullYear()}</p>
+              
+              <div className="mt-2 flex items-center gap-2 text-tech-orange font-bold uppercase tracking-widest group-hover:text-tech-orange/80 transition-colors text-[12px]">
+                <span>Ver descripción completa</span>
+                <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+              </div>
+
               {award.tags && award.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-1">
+                <div className="flex flex-wrap gap-2 mt-3">
                   {award.tags.map(tag => (
                     <SkillTag key={tag} label={tag} size="sm" />
                   ))}

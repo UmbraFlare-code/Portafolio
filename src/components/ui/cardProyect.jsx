@@ -62,18 +62,22 @@ const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
       <div className="z-10 sm:col-span-6">
         <h3 className="font-medium leading-snug text-negative">
           <div>
-            <div className="inline-flex items-baseline font-medium leading-tight text-negative group-hover:text-tech-orange transition-colors focus-visible:text-tech-orange group/link text-base">
+            <div className="inline-flex items-baseline font-medium leading-tight text-negative group-hover:text-tech-orange transition-colors focus-visible:text-tech-orange group/link text-[18px]">
               <span className="inline-block group-hover:text-tech-orange transition-colors">
                 {name}
-                <ExternalLink size={14} className="inline-block ml-1 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
               </span>
             </div>
           </div>
         </h3>
 
-        <p className="mt-2 text-sm leading-normal text-negative/60">
+        <p className="mt-2 text-[16px] leading-normal text-negative/60">
           {description}
         </p>
+
+        <div className="mt-4 flex items-center gap-2 text-tech-orange font-bold uppercase tracking-widest group-hover:text-tech-orange/80 transition-colors text-[12px]">
+          <span>Ver detalles</span>
+          <ExternalLink size={12} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+        </div>
 
         <div className="flex items-center gap-4 mt-3">
           {url && (
@@ -83,7 +87,7 @@ const Card = ({ data, isDimmed, onMouseEnter, onMouseLeave }) => {
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               className="text-negative/40 hover:text-tech-orange transition-colors"
-              title="Ver proyecto"
+              title="Ver detalles"
             >
               {url.includes('github.com') ? <Github size={18} /> : <ExternalLink size={18} />}
             </a>
