@@ -1,7 +1,7 @@
 /**
  * Mapeo de Iconos de NerdFonts para habilidades
  */
-export const HARD_SKILL_ICONS = {
+const HARD_SKILL_ICONS = {
   JavaScript: '\ue74e',
   TypeScript: '\ue628',
   React: '\ue7ba',
@@ -27,7 +27,7 @@ export const HARD_SKILL_ICONS = {
   'UX/UI': '\uf03e',
 };
 
-export const SOFT_SKILL_ICONS = {
+const SOFT_SKILL_ICONS = {
   'Trabajo en equipo': '',
   'Resolución de problemas': '',
   'Comunicación efectiva': '',
@@ -39,7 +39,7 @@ export const SOFT_SKILL_ICONS = {
 /**
  * Prioridades y Etiquetas de Categorías
  */
-export const SKILL_PRIORITY = {
+const SKILL_PRIORITY = {
   frontend: 1,
   backend: 2,
   cloud: 3,
@@ -158,10 +158,3 @@ export const serviceAdapter = (raw) => {
   };
 };
 
-export const awardAdapter = (raw) => {
-  return {
-    ...raw,
-    image: ensureAbsolutePath(raw.image || raw.img),
-    tags: raw.skills?.map(s => s.name) ?? []
-  };
-};

@@ -68,7 +68,7 @@ const CustomCursor = () => {
       {/* Thicker Inner Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-3 h-3 -ml-1.5 -mt-1.5 bg-tech-orange rounded-full shadow-[0_0_15px_rgba(255,95,31,0.5)]"
+        className="fixed top-0 left-0 size-3 -ml-1.5 -mt-1.5 bg-tech-orange rounded-full shadow-[0_0_15px_rgba(255,95,31,0.5)]"
         style={{ transform: 'translate(-100px, -100px)' }}
       />
     </div>

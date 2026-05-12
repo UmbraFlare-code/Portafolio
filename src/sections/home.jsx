@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Github, Linkedin, MessageSquare, FileText } from 'lucide-react';
 import { getHomeInfo, getContactInfo } from '../services/dataService';
 
@@ -16,7 +16,7 @@ function Home() {
   return (
     <div id="home" className="flex flex-col gap-4 scroll-mt-24">
       <div className="flex flex-col gap-2">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-negative">
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-negative">
           {name}
         </h1>
         <h2 className="text-lg md:text-xl font-medium text-tech-orange uppercase tracking-widest">

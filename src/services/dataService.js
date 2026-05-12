@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabaseClient';
-import { skillAdapter, projectAdapter, experienceAdapter, achievementAdapter, blogPostAdapter, serviceAdapter, awardAdapter } from './adapters';
+import { skillAdapter, projectAdapter, experienceAdapter, achievementAdapter, blogPostAdapter, serviceAdapter } from './adapters';
 
 import config from '../data/config.json';
 
@@ -320,9 +320,12 @@ export const getSkills = async (from = 0, to = null, tag = null) => {
 export const getSkillTags = async (skillNames) => {
   // Obtenemos todas las habilidades para buscar sus tags
   const { data: allSkills } = await getSkills(0, 999);
-  const requestedTags = allSkills
-    .filter(s => skillNames.includes(s.name))
-    .map(s => ({ name: s.name, tag: s.tag }));
+  const requestedTags = allSkills.reduce((acc, s) => {
+    if (skillNames.includes(s.name)) {
+      acc.push({ name: s.name, tag: s.tag });
+    }
+    return acc;
+  }, []);
 
   return requestedTags;
 };
@@ -340,15 +343,3 @@ export async function getServices() {
   });
 }
 
-// ─── Awards ──────────────────────────────────────────────
-export async function getAwards() {
-  return withCache('awards', async () => {
-    const { data, error } = await supabase
-      .from('awards')
-      .select('*, skills(name)')
-      .order('created_at', { ascending: false });
-
-    if (error) throw error;
-    return data.map(awardAdapter);
-  });
-}

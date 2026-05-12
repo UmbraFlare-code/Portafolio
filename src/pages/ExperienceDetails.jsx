@@ -10,8 +10,12 @@ import SkillTag from '../components/ui/SkillTag';
 const ExperienceDetails = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const [experience, setExperience] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    experience: null,
+    loading: true,
+  });
+
+  const { experience, loading } = state;
 
   useEffect(() => {
     const fetchExperience = async () => {
@@ -21,12 +25,13 @@ const ExperienceDetails = () => {
           navigate('/');
           return;
         }
-        setExperience(data);
+        setState({
+          experience: data,
+          loading: false,
+        });
       } catch (err) {
         console.error('Error fetching experience details:', err);
         navigate('/');
-      } finally {
-        setLoading(false);
       }
     };
     fetchExperience();
@@ -63,7 +68,7 @@ const ExperienceDetails = () => {
               <Briefcase size={14} />
               Experiencia Profesional
             </span>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-negative leading-tight">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-negative leading-tight">
               {experience.role}
             </h1>
             <div className="flex items-center gap-3 text-xl text-negative/60 font-medium">

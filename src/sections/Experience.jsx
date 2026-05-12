@@ -5,19 +5,24 @@ import { getExperiences } from '../services/dataService';
 import SkillTag from '../components/ui/SkillTag';
 
 const Experience = () => {
-  const [experiences, setExperiences] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    experiences: [],
+    loading: true,
+  });
+  const { experiences, loading } = state;
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchExp = async () => {
       try {
         const data = await getExperiences();
-        setExperiences(data || []);
+        setState({
+          experiences: data || [],
+          loading: false,
+        });
       } catch (err) {
         console.error('Error fetching experience:', err);
-      } finally {
-        setLoading(false);
+        setState(prev => ({ ...prev, loading: false }));
       }
     };
     fetchExp();
@@ -53,6 +58,11 @@ const Experience = () => {
           <div
             key={exp.id || index}
             onClick={() => handleNavigate(exp.slug, exp.id)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleNavigate(exp.slug, exp.id);
+              }
+            }}
             role="button"
             tabIndex={0}
             className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 cursor-pointer"

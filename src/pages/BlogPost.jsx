@@ -19,14 +19,55 @@ const slugify = (text) => {
     .trim();
 };
 
+const HeadingComponent = ({ level, children }) => {
+  const getPlainText = (nodes) => {
+    return React.Children.toArray(nodes)
+      .map(child => {
+        if (typeof child === 'string') return child;
+        if (typeof child === 'object' && child.props && child.props.children) {
+          return getPlainText(child.props.children);
+        }
+        return '';
+      })
+      .join('');
+  };
+
+  const text = getPlainText(children);
+  const id = slugify(text);
+  const Tag = `h${level}`;
+  
+  return (
+    <Tag id={id} className="scroll-mt-32 group relative">
+      {children}
+      <a 
+        href={`#${id}`} 
+        className="absolute -left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-tech-orange text-lg hidden md:block"
+        title={`Enlace a ${text}`}
+      >
+        #
+      </a>
+    </Tag>
+  );
+};
+
+
 const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [activeId, setActiveId] = useState('');
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [state, setState] = useState({
+    post: null,
+    loading: true,
+    activeId: '',
+    isMobileNavOpen: false,
+    scrollProgress: 0,
+  });
+  
+  const { post, loading, activeId, isMobileNavOpen, scrollProgress } = state;
+  const setPost = (post) => setState(prev => ({ ...prev, post }));
+  const setLoading = (loading) => setState(prev => ({ ...prev, loading }));
+  const setActiveId = (activeId) => setState(prev => ({ ...prev, activeId }));
+  const setIsMobileNavOpen = (isMobileNavOpen) => setState(prev => ({ ...prev, isMobileNavOpen }));
+  const setScrollProgress = (scrollProgress) => setState(prev => ({ ...prev, scrollProgress }));
   const observer = useRef(null);
 
   // Extract headings for TOC
@@ -124,7 +165,7 @@ const BlogPost = () => {
       setScrollProgress(progress);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -143,36 +184,6 @@ const BlogPost = () => {
   const content = post.content || '';
   const readingTime = Math.ceil(content.split(/\s+/).length / 200);
 
-  const HeadingComponent = ({ level, children }) => {
-    const getPlainText = (nodes) => {
-      return React.Children.toArray(nodes)
-        .map(child => {
-          if (typeof child === 'string') return child;
-          if (typeof child === 'object' && child.props && child.props.children) {
-            return getPlainText(child.props.children);
-          }
-          return '';
-        })
-        .join('');
-    };
-
-    const text = getPlainText(children);
-    const id = slugify(text);
-    const Tag = `h${level}`;
-    
-    return (
-      <Tag id={id} className="scroll-mt-32 group relative">
-        {children}
-        <a 
-          href={`#${id}`} 
-          className="absolute -left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-tech-orange text-lg hidden md:block"
-          title={`Enlace a ${text}`}
-        >
-          #
-        </a>
-      </Tag>
-    );
-  };
 
   const scrollToHeading = (id) => {
     const el = document.getElementById(id);
@@ -262,7 +273,7 @@ const BlogPost = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-negative leading-tight">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-negative leading-tight">
               {post.title}
             </h1>
 
@@ -311,7 +322,7 @@ const BlogPost = () => {
         <div className="lg:hidden fixed bottom-8 right-6 z-[70]">
           <button
             onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-            className="flex items-center justify-center w-14 h-14 rounded-full bg-tech-orange text-white shadow-lg shadow-tech-orange/30 transition-all hover:scale-110 active:scale-95"
+            className="flex items-center justify-center size-14 rounded-full bg-tech-orange text-white shadow-lg shadow-tech-orange/30 transition-all hover:scale-110 active:scale-95"
           >
             {isMobileNavOpen ? <X size={24} /> : <List size={24} />}
           </button>

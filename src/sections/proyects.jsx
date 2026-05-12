@@ -6,19 +6,27 @@ import { getProjects, getProjectCategories } from '../services/dataService';
 import Button from '../components/ui/Button';
 
 function Proyects() {
-  const [allProjects, setAllProjects] = useState([]);
-  const [categories, setCategories] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    allProjects: [],
+    categories: {},
+    loading: true,
+    activeCategory: null,
+    hoveredIndex: null,
+    showAll: false,
+    isMobile: false
+  });
 
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const { allProjects, categories, loading, activeCategory, hoveredIndex, showAll, isMobile } = state;
+
+  const setActiveCategory = (activeCategory) => setState(prev => ({ ...prev, activeCategory }));
+  const setHoveredIndex = (hoveredIndex) => setState(prev => ({ ...prev, hoveredIndex }));
+  const setShowAll = (showAll) => setState(prev => ({ ...prev, showAll }));
+  const setIsMobile = (isMobile) => setState(prev => ({ ...prev, isMobile }));
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -29,12 +37,15 @@ function Proyects() {
           getProjects(),
           getProjectCategories(),
         ]);
-        setAllProjects(projects);
-        setCategories(cats);
-        setLoading(false);
+        setState(prev => ({
+          ...prev,
+          allProjects: projects,
+          categories: cats,
+          loading: false
+        }));
       } catch (err) {
         console.error('Error fetching projects:', err);
-        setLoading(false);
+        setState(prev => ({ ...prev, loading: false }));
       }
     };
     fetchData();

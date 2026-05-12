@@ -5,23 +5,30 @@ import SkillTag from '../components/ui/SkillTag';
 import Button from '../components/ui/Button';
 
 const Logros = () => {
-  const [achievements, setAchievements] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    achievements: [],
+    loading: true
+  });
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getAchievements();
-        setAchievements(data || []);
-        setLoading(false);
+        setState(prev => ({
+          ...prev,
+          achievements: data || [],
+          loading: false
+        }));
       } catch (err) {
         console.error('Error fetching achievements:', err);
-        setLoading(false);
+        setState(prev => ({ ...prev, loading: false }));
       }
     };
     fetchData();
   }, []);
+
+  const { achievements, loading } = state;
 
   if (loading) return (
     <div className="flex items-center justify-center py-12">
@@ -169,6 +176,14 @@ const Logros = () => {
           <div
             className="absolute inset-0 bg-dark-bg/90 backdrop-blur-sm"
             onClick={() => setSelectedItem(null)}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+                setSelectedItem(null);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label="Cerrar modal"
           />
           <div className="relative w-full max-w-2xl bg-dark-bg border border-negative/10 rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
             <header className="flex items-center justify-between p-6 border-b border-negative/5">
@@ -195,7 +210,7 @@ const Logros = () => {
                     {selectedItem.title}
                   </h2>
                   <div className="flex items-center gap-4 text-sm text-negative/40">
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1" suppressHydrationWarning>
                       <Calendar size={14} /> {selectedItem.date || new Date(selectedItem.created_at).getFullYear()}
                     </span>
                   </div>

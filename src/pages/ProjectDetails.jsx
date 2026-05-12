@@ -10,9 +10,16 @@ import SkillTag from '../components/ui/SkillTag';
 const ProjectDetails = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const [project, setProject] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [tags, setTags] = useState([]);
+  const [state, setState] = useState({
+    project: null,
+    loading: true,
+    tags: [],
+  });
+  
+  const { project, loading, tags } = state;
+  const setProject = (project) => setState(prev => ({ ...prev, project }));
+  const setLoading = (loading) => setState(prev => ({ ...prev, loading }));
+  const setTags = (tags) => setState(prev => ({ ...prev, tags }));
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -22,13 +29,14 @@ const ProjectDetails = () => {
           navigate('/');
           return;
         }
-        setProject(data);
-        if (data.tags) setTags(data.tags);
+        setState({
+          project: data,
+          tags: data.tags || [],
+          loading: false,
+        });
       } catch (err) {
         console.error('Error fetching project details:', err);
         navigate('/');
-      } finally {
-        setLoading(false);
       }
     };
     fetchProject();
@@ -86,7 +94,7 @@ const ProjectDetails = () => {
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-tech-orange">
                 {project.categoryLabel || 'Proyecto'}
               </span>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-negative leading-tight">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-negative leading-tight">
                 {project.name}
               </h1>
             </div>
@@ -119,7 +127,7 @@ const ProjectDetails = () => {
                   className="flex items-center gap-2 px-6 py-3 rounded-xl bg-tech-orange text-white font-bold text-sm uppercase tracking-wider hover:bg-tech-orange/90 transition-all hover:shadow-[0_0_30px_rgba(255,95,31,0.3)]"
                 >
                   {project.url.includes('github.com') ? <Github size={18} /> : <ExternalLink size={18} />}
-                  {project.url.includes('github.com') ? 'Ver código' : 'Ver en Vivo'}
+                  {project.url.includes('github.com') ? 'Ver cÃ³digo' : 'Ver en Vivo'}
                 </a>
               )}
             </div>
@@ -131,7 +139,7 @@ const ProjectDetails = () => {
           <div className="flex flex-col gap-4 pt-8 border-t border-negative/5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-negative/40 flex items-center gap-2">
               <Tag size={16} className="text-tech-orange" />
-              Tecnologías
+              TecnologÃ­as
             </h3>
             <div className="flex flex-wrap gap-2">
               {tags.map((tag) => (
@@ -145,7 +153,7 @@ const ProjectDetails = () => {
         {content && (
           <article className="pt-8 border-t border-negative/5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-negative/40 mb-8">
-              Detalle técnico
+              Detalle tÃ©cnico
             </h3>
             <div className="prose-portfolio">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
@@ -157,7 +165,7 @@ const ProjectDetails = () => {
         {project.technical_details && !content && (
           <div className="pt-8 border-t border-negative/5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-negative/40 mb-4 flex items-center gap-2">
-              Detalles Técnicos
+              Detalles TÃ©cnicos
             </h3>
             <div className="prose-portfolio">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.technical_details}</ReactMarkdown>

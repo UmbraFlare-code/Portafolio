@@ -7,7 +7,7 @@ import BlogPost from './pages/BlogPost';
 import CustomCursor from './components/CustomCursor';
 import PageTransition from './components/PageTransition';
 
-export function App() {
+function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
       <CustomCursor />

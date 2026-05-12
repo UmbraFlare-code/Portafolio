@@ -4,18 +4,25 @@ import { Calendar, ArrowRight, Loader2 } from 'lucide-react';
 import { getBlogPosts } from '../services/dataService';
 
 const BlogSection = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    posts: [],
+    loading: true
+  });
+
+  const { posts, loading } = state;
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const data = await getBlogPosts();
-        setPosts(data.slice(0, 2)); // Solo los 2 más recientes en el home
+        setState(prev => ({
+          ...prev,
+          posts: data.slice(0, 2),
+          loading: false
+        }));
       } catch (err) {
         console.error('Error fetching blog posts:', err);
-      } finally {
-        setLoading(false);
+        setState(prev => ({ ...prev, loading: false }));
       }
     };
     fetchPosts();
@@ -29,8 +36,8 @@ const BlogSection = () => {
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Artículos Recientes</h3>
-          <Link 
-            to="/blog" 
+          <Link
+            to="/blog"
             className="text-sm font-bold uppercase tracking-widest text-negative/60 hover:text-tech-orange transition-colors flex items-center gap-2 group"
           >
             Ver todo <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -48,15 +55,21 @@ const BlogSection = () => {
           >
             <div className="flex items-center gap-2 text-sm text-negative/40">
               <Calendar size={14} />
-              {new Date(post.published_at).toLocaleDateString('es-PE', {
-                year: 'numeric', month: 'short', day: 'numeric'
-              })}
+              <time dateTime={post.published_at} suppressHydrationWarning>
+                {new Date(post.published_at).toLocaleDateString('es-PE', {
+                  year: 'numeric', month: 'short', day: 'numeric'
+                })}
+              </time>
             </div>
             <h4 className="text-[18px] font-bold text-negative group-hover:text-tech-orange transition-colors">
               {post.title}
             </h4>
             <p className="text-[16px] text-negative/60 line-clamp-2">
               {post.excerpt}
+            </p>
+
+            <p className="text-[14px] text-tech-orange font-bold line-clamp-2">
+              Ver más...
             </p>
           </Link>
         ))}

@@ -26,21 +26,24 @@ const Footer = () => {
             </div>
 
             <div className="flex items-center gap-8">
-                {socialLinks.filter(l => socialIcons[l.icon]).map((link) => {
+                {socialLinks.reduce((acc, link) => {
                     const Icon = socialIcons[link.icon];
-                    return (
-                        <a
-                            key={link.name}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-negative/20 hover:text-tech-orange transition-all duration-300 hover:-translate-y-1"
-                            title={link.name}
-                        >
-                            <Icon size={20} />
-                        </a>
-                    );
-                })}
+                    if (Icon) {
+                        acc.push(
+                            <a
+                                key={link.name}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-negative/20 hover:text-tech-orange transition-all duration-300 hover:-translate-y-1"
+                                title={link.name}
+                            >
+                                <Icon size={20} />
+                            </a>
+                        );
+                    }
+                    return acc;
+                }, [])}
             </div>
         </footer>
     );
