@@ -125,7 +125,7 @@ const Blog = () => {
                   )}
 
                   <span className="flex items-center gap-2 text-sm font-bold text-tech-orange mt-2 group-hover:gap-3 transition-all">
-                    Leer mÃ¡s <ArrowRight size={16} />
+                    Leer más <ArrowRight size={16} />
                   </span>
                 </div>
               </Link>

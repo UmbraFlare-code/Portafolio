@@ -69,7 +69,7 @@ const BlogSection = () => {
             </p>
 
             <p className="text-[14px] text-tech-orange font-bold line-clamp-2">
-              Ver más...
+              Leer más...
             </p>
           </Link>
         ))}

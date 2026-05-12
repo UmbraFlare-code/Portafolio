@@ -91,10 +91,23 @@ body {
   margin-bottom: 0.75em;
 }
 
-.prose-portfolio h1 { font-size: 2rem; }
-.prose-portfolio h2 { font-size: 1.5rem; border-bottom: 1px solid rgba(250, 250, 250, 0.05); padding-bottom: 0.5em; }
-.prose-portfolio h3 { font-size: 1.2rem; }
-.prose-portfolio h4 { font-size: 1rem; }
+.prose-portfolio h1 {
+  font-size: 2rem;
+}
+
+.prose-portfolio h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(250, 250, 250, 0.05);
+  padding-bottom: 0.5em;
+}
+
+.prose-portfolio h3 {
+  font-size: 1.2rem;
+}
+
+.prose-portfolio h4 {
+  font-size: 1rem;
+}
 
 .prose-portfolio p {
   margin-bottom: 1.25em;
