@@ -8,8 +8,15 @@
   <title>Francis Maxuel | Software Engineer</title>
   <base href="/Portafolio/">
   <script type="text/javascript">
-    // Script para restaurar la ruta de SPA después de una redirección de 404.html
     (function(l) {
+      // 1. Corregir automáticamente minúsculas/mayúsculas para evitar que React Router crashee
+      var base = '/Portafolio';
+      if (l.pathname.toLowerCase().startsWith(base.toLowerCase()) && !l.pathname.startsWith(base)) {
+        l.replace(base + l.pathname.substring(base.length) + l.search + l.hash);
+        return;
+      }
+
+      // 2. Script para restaurar la ruta de SPA después de una redirección de 404.html
       if (l.search[1] === '/' ) {
         var decoded = l.search.slice(1).split('&').map(function(s) { 
           return s.replace(/~and~/g, '&')
