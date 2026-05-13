@@ -6,6 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Francis Maxuel | Software Engineer</title>
+  <base href="/Portafolio/">
   <script type="text/javascript">
     // Script para restaurar la ruta de SPA después de una redirección de 404.html
     (function(l) {
@@ -14,7 +15,7 @@
           return s.replace(/~and~/g, '&')
         }).join('?');
         window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
+            l.pathname.slice(0, (l.pathname.endsWith('/') ? -1 : undefined)) + decoded + l.hash
         );
       }
     }(window.location))
