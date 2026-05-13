@@ -9,7 +9,7 @@ import PageTransition from './components/PageTransition';
 
 function App() {
   return (
-    <Router basename="/portafolio">
+    <Router basename={import.meta.env.BASE_URL}>
       <CustomCursor />
       <PageTransition>
         {(location) => (
