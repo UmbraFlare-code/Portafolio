@@ -9,7 +9,7 @@ import PageTransition from './components/PageTransition';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/portafolio">
       <CustomCursor />
       <PageTransition>
         {(location) => (
