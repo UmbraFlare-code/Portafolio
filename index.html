@@ -1,23 +1,38 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Francis Maxuel | Software Engineer</title>
-    <style>
-      .mensaje { display: none; }
-    </style>
 
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <div class="mensaje">
-      <h1></h1>
-      <p class="data1"></p>
-      <img src="assets/icons/celular.svg" alt="orientacion" >
-      <p class="data2"></p>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francis Maxuel | Software Engineer</title>
+  <base href="/Portafolio/">
+  <script type="text/javascript">
+    (function(l) {
+      // 1. Corregir automáticamente minúsculas/mayúsculas para evitar que React Router crashee
+      var base = '/Portafolio';
+      if (l.pathname.toLowerCase().startsWith(base.toLowerCase()) && !l.pathname.startsWith(base)) {
+        l.replace(base + l.pathname.substring(base.length) + l.search + l.hash);
+        return;
+      }
+
+      // 2. Script para restaurar la ruta de SPA después de una redirección de 404.html
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, (l.pathname.endsWith('/') ? -1 : undefined)) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="src/main.jsx"></script>
+</body>
+
 </html>

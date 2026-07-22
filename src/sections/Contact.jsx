@@ -4,18 +4,24 @@ import { getServices, getContactInfo } from '../services/dataService';
 
 const Contact = () => {
   const { email, phone } = getContactInfo();
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    services: [],
+    loading: true,
+  });
+
+  const { services, loading } = state;
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
         const data = await getServices();
-        setServices(data);
+        setState({
+          services: data,
+          loading: false,
+        });
       } catch (err) {
         console.error('Error fetching services:', err);
-      } finally {
-        setLoading(false);
+        setState(prev => ({ ...prev, loading: false }));
       }
     };
     fetchServices();

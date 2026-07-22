@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight, Loader2, FileText } from 'lucide-react';
 import SkillTag from '../components/ui/SkillTag';
@@ -44,11 +44,11 @@ const Blog = () => {
     <PageLayout title="Blog">
       <div className="flex flex-col gap-12">
         <header className="flex flex-col gap-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-negative">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-negative">
             Blog
           </h1>
           <p className="text-lg text-negative/60 max-w-xl leading-relaxed">
-            Ideas, aprendizajes y tutoriales sobre desarrollo, diseño y tecnología.
+            Ideas, aprendizajes y tutoriales sobre desarrollo, diseÃ±o y tecnologÃ­a.
           </p>
         </header>
 
@@ -75,8 +75,8 @@ const Blog = () => {
         {filteredPosts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 gap-6 text-negative/30">
             <FileText size={64} />
-            <p className="text-lg font-medium">No hay artículos publicados aún</p>
-            <p className="text-sm">Pronto estaré compartiendo contenido aquí ✍️</p>
+            <p className="text-lg font-medium">No hay artÃ­culos publicados aÃºn</p>
+            <p className="text-sm">Pronto estarÃ© compartiendo contenido aquÃ­ âœï¸</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

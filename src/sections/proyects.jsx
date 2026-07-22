@@ -6,19 +6,27 @@ import { getProjects, getProjectCategories } from '../services/dataService';
 import Button from '../components/ui/Button';
 
 function Proyects() {
-  const [allProjects, setAllProjects] = useState([]);
-  const [categories, setCategories] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    allProjects: [],
+    categories: {},
+    loading: true,
+    activeCategory: null,
+    hoveredIndex: null,
+    showAll: false,
+    isMobile: false
+  });
 
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const { allProjects, categories, loading, activeCategory, hoveredIndex, showAll, isMobile } = state;
+
+  const setActiveCategory = (activeCategory) => setState(prev => ({ ...prev, activeCategory }));
+  const setHoveredIndex = (hoveredIndex) => setState(prev => ({ ...prev, hoveredIndex }));
+  const setShowAll = (showAll) => setState(prev => ({ ...prev, showAll }));
+  const setIsMobile = (isMobile) => setState(prev => ({ ...prev, isMobile }));
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -29,12 +37,15 @@ function Proyects() {
           getProjects(),
           getProjectCategories(),
         ]);
-        setAllProjects(projects);
-        setCategories(cats);
-        setLoading(false);
+        setState(prev => ({
+          ...prev,
+          allProjects: projects,
+          categories: cats,
+          loading: false
+        }));
       } catch (err) {
         console.error('Error fetching projects:', err);
-        setLoading(false);
+        setState(prev => ({ ...prev, loading: false }));
       }
     };
     fetchData();
@@ -65,9 +76,9 @@ function Proyects() {
   return (
     <section id="proyects" className="flex flex-col gap-12 scroll-mt-24">
       <div className="flex flex-col gap-4">
-        <h3 className="text-xs uppercase tracking-widest text-tech-orange font-bold">Proyectos</h3>
-        <h2 className="text-4xl font-bold text-negative">Proyectos</h2>
-        <p className="text-negative/60 text-lg max-w-xl">Una selección de mis trabajos más recientes y destacados.</p>
+        <h3 className="text-sm uppercase tracking-widest text-tech-orange font-bold">Proyectos</h3>
+        <h2 className="text-[22px] font-bold text-negative">Galería de Proyectos</h2>
+        <p className="text-negative/60 text-[18px] max-w-xl">Una selección de mis trabajos más recientes y destacados.</p>
       </div>
 
       {/* Filter Tabs */}

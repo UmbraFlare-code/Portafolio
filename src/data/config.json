@@ -2,11 +2,11 @@
   "profile": {
     "name": "Francis Maxuel U.O",
     "title": "Ingeniero de Sistemas e Informática",
-    "description": "Desarrollo experiencias digitales precisas, escalables y centradas en el usuario.",
-    "about": "Apasionado por crear soluciones innovadoras que integran hardware y software. Me especializo en tecnologías como React, Python, C++ y Arduino. Me motiva resolver problemas reales mediante la programación y el diseño inteligente."
+    "description": "Desarollador Full Stack, con especialidad en React para frontend, Express para backend y PostgreSQL para base de datos.",
+    "about": "Apasionado por crear soluciones innovadoras que integran hardware y software, que esto permita aportar crecimiento al negocio. Me motiva resolver problemas reales mediante la programación y el diseño inteligente."
   },
   "contact": {
-    "email": "umaxuel@gmail.com",
+    "email": "[EMAIL_ADDRESS]",
     "phone": "+51 926061849",
     "location": "Huancayo, Perú",
     "availability": {
