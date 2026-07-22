@@ -48,7 +48,7 @@ const Contact = () => {
 
         <div className="flex flex-wrap gap-4">
           <a
-            href={email.mailtoUrl}
+            href={`mailto:${email}?subject=Interesado%20en%20tu%20Trabajo`}
             className="flex items-center gap-4 px-6 py-4 rounded-xl bg-negative/5 border border-negative/10 hover:border-tech-orange/40 transition-all group lg:hover:bg-negative/10"
           >
             <div className="p-2.5 rounded-lg bg-tech-orange/10 text-tech-orange group-hover:bg-tech-orange group-hover:text-white transition-all">
