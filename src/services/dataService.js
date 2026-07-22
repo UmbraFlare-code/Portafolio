@@ -15,10 +15,6 @@ export const getAboutInfo = () => ({
 
 export const getContactInfo = () => ({
   ...config.contact,
-  email: {
-    address: config.contact.email,
-    mailtoUrl: `mailto:${config.contact.email}?subject=Interesado%20en%20tu%20Trabajo`
-  },
   phone: {
     number: config.contact.phone,
     whatsappUrl: `https://wa.me/${config.contact.phone.replace(/[^0-9]/g, '')}`

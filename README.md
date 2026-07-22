@@ -1,104 +1,110 @@
-# 🌐 Portafolio - Francis Urquizo Oré
+# Portafolio — Francis Maxuel Urquizo Oré
 
 [English version](README_EN.md)
 
-Un sitio web de portafolio moderno e interactivo construido con React y Vite, mostrando mi trayectoria a través de proyectos, habilidades y logros.
+Portafolio personal moderno y responsivo para presentar proyectos, experiencia, habilidades, certificaciones, premios y artículos. La interfaz está construida con React y los datos dinámicos se obtienen desde Supabase.
 
-![Vista previa del Portafolio](/public/assets/img/proyects/portfolio.png)
+![Vista previa del portafolio](public/assets/img/proyects/portafolio.jpg)
 
-## 📋 Características
+## Características
 
-- **Componentes UI Dinámicos**
-  - Tarjetas de proyecto expandibles con funcionalidad de vista previa
-  - Exhibición interactiva de habilidades con representación de iconos
-  - Transiciones animadas entre secciones
-  - Sistema de navegación responsivo
+- Página principal con perfil, proyectos, experiencia, habilidades, logros y contacto.
+- Páginas de detalle para proyectos y experiencia.
+- Blog con contenido Markdown y compatibilidad con GitHub Flavored Markdown.
+- Filtros, tarjetas interactivas, cursor personalizado y transiciones con GSAP.
+- Estado de disponibilidad calculado con la zona horaria de Lima.
+- Datos almacenados en Supabase y caché de sesión para reducir consultas repetidas.
+- Diseño responsive con Tailwind CSS 4 y estilos personalizados.
+- Despliegue automatizado en GitHub Pages.
 
-- **Muestra de Proyectos**
-  - Visualización categorizada de proyectos (Web, Móvil, etc.)
-  - Capacidades de filtrado de proyectos
-  - Enlaces a vista previa en vivo y código fuente
-  - Descripciones detalladas de proyectos
+## Tecnologías
 
-- **Perfil Profesional**
-  - Visualización de habilidades con iconos de tecnología
-  - Línea de tiempo de certificaciones
-  - Exhibición de premios profesionales
-  - Opción de CV descargable
+- React 19 y React Router 7
+- Vite 6
+- Tailwind CSS 4
+- Supabase
+- GSAP
+- Lucide React
+- React Markdown y Remark GFM
+- ESLint 9
 
-- **Diseño Responsivo**
-  - Enfoque mobile-first
-  - Diseños adaptativos para todas las pantallas
-  - Interfaz táctil amigable
-  - Imágenes y recursos optimizados
+## Requisitos
 
-## 🛠️ Tecnologías Utilizadas
+- Node.js 20 o superior
+- npm
+- Un proyecto de Supabase con los datos del portafolio
 
-- **Framework Frontend**
-  - React 18
-  - Vite 4
-  - CSS3 con propiedades personalizadas
+## Instalación
 
-- **Componentes UI**
-  - React Icons
-  - Componentes animados personalizados
-  - Manejo responsivo de imágenes
-  - Layouts con CSS Grid/Flexbox
-
-- **Rendimiento**
-  - Carga diferida de imágenes
-  - División de código por componentes
-  - Entrega optimizada de recursos
-  - Estructura optimizada para SEO
-
-## 🔍 Estructura del Proyecto
-
-```plaintext
-Portfolio/
-├── public/
-│   └── assets/
-│       ├── icons/          # Iconos UI y marca
-│       └── img/
-│           ├── perfil/     # Imágenes de perfil
-│           ├── awards/     # Certificados de premios
-│           ├── certs/      # Certificaciones
-│           └── projects/   # Vistas previas de proyectos
-├── src/
-│   ├── components/
-│   │   └── ui/            # Componentes UI reutilizables
-│   ├── data/              # Archivos JSON de datos
-│   ├── sections/          # Secciones principales
-│   ├── styles/           # Módulos CSS
-│   ├── App.jsx           # Componente principal
-│   └── main.jsx         # Punto de entrada
-└── package.json
-```
-
-## 🚀 Comenzando
-
-1. Clonar el repositorio:
 ```bash
-git clone https://github.com/UmbraFlare-code/portfolio.git
-```
-
-2. Instalar dependencias:
-```bash
+git clone https://github.com/UmbraFlare-code/Portafolio.git
+cd Portafolio
 npm install
 ```
 
-3. Ejecutar servidor de desarrollo:
+Copia las variables de entorno de ejemplo y completa las credenciales públicas de Supabase:
+
+```bash
+cp .env.example .env
+```
+
+```env
+VITE_SUPABASE_URL=https://tu-proyecto.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=tu-clave-publicable
+```
+
+> Las variables con el prefijo `VITE_` se incluyen en el cliente. Usa únicamente la clave publicable de Supabase y protege los datos mediante Row Level Security (RLS).
+
+Inicia el servidor de desarrollo:
+
 ```bash
 npm run dev
 ```
 
-## 📄 Licencia
+## Scripts disponibles
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+| Comando | Descripción |
+| --- | --- |
+| `npm run dev` | Inicia Vite en modo desarrollo. |
+| `npm run build` | Genera la versión de producción en `dist/`. |
+| `npm run preview` | Sirve localmente la compilación de producción. |
+| `npm run lint` | Ejecuta ESLint en el proyecto. |
 
-## 📬 Contacto
+## Estructura del proyecto
 
-- LinkedIn: [Urquizo Oré Francis](https://linkedin.com/in/maxuel-urquizo-oré-2ba4b1279)
-- GitHub: [UmbraFlare-code](https://github.com/UmbraFlare-code)
+```text
+Portafolio/
+├── public/               # Imágenes, iconos y fuentes
+├── src/
+│   ├── components/       # Componentes reutilizables
+│   ├── data/             # Configuración local del perfil
+│   ├── layouts/          # Layouts principales
+│   ├── lib/              # Cliente de Supabase
+│   ├── pages/            # Páginas y rutas de detalle
+│   ├── sections/         # Secciones de la página principal
+│   ├── services/         # Consultas, adaptadores y caché de datos
+│   └── styles/           # Estilos globales
+├── .github/workflows/    # Despliegue y mantenimiento de Supabase
+└── vite.config.js
+```
+
+## Despliegue
+
+El workflow de GitHub Pages se ejecuta al enviar cambios a la rama `workflow-web`. Antes de desplegar, configura estos secretos en GitHub:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+
+Vite usa `/Portafolio/` como ruta base. Si publicas el proyecto con otro nombre o dominio, actualiza `base` en `vite.config.js`.
+
+## Licencia
+
+Distribuido bajo la licencia MIT. Consulta [LICENSE](LICENSE).
+
+## Contacto
+
+- [LinkedIn](https://linkedin.com/in/maxuel-urquizo-or%C3%A9-2ba4b1279)
+- [GitHub](https://github.com/UmbraFlare-code)
+- [Portafolio](https://umbraflare-code.github.io/Portafolio/)
+- [Currículum](https://rxresu.me/umbraflare-code/cv)
 - Email: umaxuel@gmail.com
-- Portafolio: [Sitio Web](https://umbraflare-code.github.io/portfolio/)
-- CV: [Currículum](https://rxresu.me/umbraflare-code/cv)
