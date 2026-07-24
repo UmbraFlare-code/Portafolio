@@ -19,7 +19,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: |
-          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_PUBLISHABLE_KEY" ]; then
+          if [ -z "$VITE_SUPABASE_URL" ] || [ -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then
             echo "Faltan los secretos VITE_SUPABASE_URL o VITE_SUPABASE_PUBLISHABLE_KEY."
             exit 1
           fi
@@ -27,11 +27,11 @@ jobs:
           HTTP_STATUS=$(curl --silent --show-error \
             --output /tmp/supabase-response.json \
             --write-out '%{http_code}' \
-            --get "${SUPABASE_URL%/}/rest/v1/projects" \
+            --get "${VITE_SUPABASE_URL%/}/rest/v1/projects" \
             --data-urlencode 'select=id' \
             --data-urlencode 'limit=1' \
             --header "apikey: $SUPABASE_PUBLISHABLE_KEY" \
-            --header "Authorization: Bearer $SUPABASE_PUBLISHABLE_KEY")
+            --header "Authorization: Bearer $VITE_SUPABASE_PUBLISHABLE_KEY")
 
           if [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 300 ]; then
             echo "Supabase respondio con HTTP $HTTP_STATUS:"
