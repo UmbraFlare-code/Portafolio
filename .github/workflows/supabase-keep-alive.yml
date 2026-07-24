@@ -2,7 +2,6 @@ name: Supabase keep alive
 
 on:
   schedule:
-    # GitHub Actions usa UTC. Se ejecuta diariamente a las 02:17 (hora de Lima).
     - cron: '17 7 * * *'
   workflow_dispatch:
 
@@ -13,30 +12,35 @@ jobs:
   ping-supabase:
     runs-on: ubuntu-latest
     timeout-minutes: 2
+
     steps:
       - name: Consultar Supabase
         env:
           SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+
         run: |
-          if [ -z "$VITE_SUPABASE_URL" ] || [ -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_PUBLISHABLE_KEY:-}" ]; then
             echo "Faltan los secretos VITE_SUPABASE_URL o VITE_SUPABASE_PUBLISHABLE_KEY."
             exit 1
           fi
 
-          HTTP_STATUS=$(curl --silent --show-error \
+          HTTP_STATUS=$(curl \
+            --silent \
+            --show-error \
             --output /tmp/supabase-response.json \
             --write-out '%{http_code}' \
-            --get "${VITE_SUPABASE_URL%/}/rest/v1/projects" \
+            --get "${SUPABASE_URL%/}/rest/v1/projects" \
             --data-urlencode 'select=id' \
             --data-urlencode 'limit=1' \
-            --header "apikey: $SUPABASE_PUBLISHABLE_KEY" \
-            --header "Authorization: Bearer $VITE_SUPABASE_PUBLISHABLE_KEY")
+            --header "apikey: $SUPABASE_PUBLISHABLE_KEY")
 
           if [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 300 ]; then
-            echo "Supabase respondio con HTTP $HTTP_STATUS:"
+            echo "Supabase respondió con HTTP $HTTP_STATUS:"
             cat /tmp/supabase-response.json
             exit 1
           fi
 
-          echo "Supabase respondio correctamente (HTTP $HTTP_STATUS)."
+          echo "Supabase respondió correctamente (HTTP $HTTP_STATUS)."
